@@ -1,0 +1,185 @@
+DOCUMENTO BASE – PROCESO DE FORMACIÓN TECH HÍBRIDO (v1.5)
+=======================================================
+
+Este documento consolida:
+- Documento v1.4
+- Registro real de avance del proceso hasta el DÍA 15
+- Definición clara del objetivo del proyecto formativo
+- Estructura validada del evento crítico del sistema
+
+Este documento es el ancla de continuidad del proceso.
+
+-------------------------------------------------------
+1. IDENTIDAD GENERAL
+-------------------------------------------------------
+Profesional con base en Administración de Empresas, Especialización en Gerencia de Proyectos y amplia experiencia en industria manufacturera, automatización y robótica.
+
+Perfil técnico-operativo con:
+- Experiencia liderando equipos de 20 a 40 personas
+- Facilitador de Producción
+- Experto en procesos de esmaltado robotizado y manual
+- Más de 5 años programando robots KUKA (coordenadas y lógica de movimiento)
+- Experiencia en puesta en marcha de maquinaria y viajes internacionales
+- Trabajo transversal con ingeniería, TI e I+D
+- Conocimiento práctico de CAPEX, OPEX y evaluación financiera
+- Cinturón Verde Lean Six Sigma
+
+-------------------------------------------------------
+2. SITUACIÓN LABORAL ACTUAL
+-------------------------------------------------------
+- Salario actual: 5.5 millones COP
+- Rol percibido como operativo
+- Reconocimiento técnico informal sin impacto salarial
+- Alta dependencia de proveedores externos
+- Frustración por subutilización de capacidades
+- Turnos nocturnos con alta carga emocional
+
+-------------------------------------------------------
+3. OBJETIVO ESTRATÉGICO
+-------------------------------------------------------
+Meta 2026:
+- Rol tech híbrido con salario mínimo 8M COP
+
+Meta 2027:
+- Inglés como acelerador profesional
+
+Estrategia:
+- No competir como programador junior
+- Convertir experiencia industrial en ventaja diferencial
+- Traducir operación industrial a software
+- Ser puente entre planta, negocio y tecnología
+
+-------------------------------------------------------
+4. PERFIL TECH HÍBRIDO DEFINIDO
+-------------------------------------------------------
+Profesional con experiencia en operación industrial crítica que incorpora desarrollo de software para:
+
+- Entender sistemas productivos
+- Representar eventos industriales como datos
+- Reducir dependencia de terceros
+- Mejorar y escalar procesos
+- Aportar criterio técnico con visión de negocio
+
+Características:
+- Ownership natural
+- Pensamiento sistémico
+- Enfoque práctico
+- Aprendizaje con propósito
+
+-------------------------------------------------------
+5. PROYECTO FORMATIVO CENTRAL
+-------------------------------------------------------
+Nombre del proyecto:
+Proyecto Macro – Célula 4
+
+Propósito real:
+Aprender a traducir eventos reales de planta (paros de la célula de esmaltado)
+a estructuras de software comprensibles, trazables y analizables.
+
+Este proyecto:
+- NO busca construir un producto final
+- NO busca optimización inmediata
+- SÍ busca formar criterio de modelado de sistemas industriales
+
+-------------------------------------------------------
+6. EVENTO CRÍTICO DEFINIDO
+-------------------------------------------------------
+Evento central del sistema:
+Paro de la célula de esmaltado
+
+El paro se entiende como un EVENTO DEL SISTEMA, no solo como una detención física.
+
+-------------------------------------------------------
+7. ESTRUCTURA ESTÁNDAR DEL EVENTO (VALIDADA)
+-------------------------------------------------------
+Todo paro de célula debe registrarse con la siguiente información mínima:
+
+- Tipo de evento
+- Causa
+- Duración
+- Estado de resolución
+- Observación
+
+Esta estructura fue:
+- Definida desde experiencia real de planta
+- Probada con múltiples eventos simulados
+- Validada como suficiente para toma de decisiones
+- Congelada conscientemente (no se agregan campos)
+
+-------------------------------------------------------
+8. REGISTRO DEL PROCESO REAL – DÍAS 01 A 15
+-------------------------------------------------------
+
+DÍA 01 – ARRANQUE REAL
+- Preparación del entorno
+- Primer contacto con HTML como estructura
+- Creación del primer archivo index.html
+
+DÍA 02 – CLARIDAD CONCEPTUAL
+- HTML entendido como estructura, no programación
+- Correcto modelo mental de proyecto y archivos
+
+DÍA 03 – IDENTIDAD DEL PROYECTO (GIT)
+- Inicialización de repositorio Git
+- Primer commit
+- Resolución de conflictos de entorno corporativo
+
+DÍA 04 – PROYECTO MULTI-DISPOSITIVO
+- Creación de repositorio en GitHub
+- Flujo Dell ? GitHub operativo
+
+DÍA 05 a DÍA 08
+- Continuidad del proceso sin actualización documental
+- Trabajo real no registrado formalmente
+
+DÍA 09 – REACTIVACIÓN DOCUMENTAL
+- Actualización consciente de archivos
+- Señal explícita de continuidad del proyecto
+
+DÍA 10 – LOG VISIBLE
+- Introducción de log de actividad en HTML
+- Concepto de trazabilidad aplicado al proyecto
+
+DÍA 11 – EVENTO SIMULADO
+- Primer paro de célula representado como evento
+- Diferenciación entre evento real y formativo
+
+DÍA 12 – DESCOMPOSICIÓN DEL PARO
+- Paro descompuesto en causa, duración y observación
+- Evento convertido en información estructurada
+
+DÍA 13 – ESTANDARIZACIÓN
+- Definición de estructura estándar del evento de paro
+
+DÍA 14 – VALIDACIÓN POR REPETICIÓN
+- Segundo paro simulado usando la misma estructura
+- Confirmación de consistencia del modelo
+
+DÍA 15 – VALIDACIÓN FINAL
+- Revisión crítica de la estructura
+- Confirmación de que la información es suficiente
+- Decisión consciente de no agregar más campos
+
+-------------------------------------------------------
+9. PRINCIPIOS DEL PROCESO
+-------------------------------------------------------
+- Constancia > intensidad
+- Aprender con contexto real
+- No avanzar sin entender
+- Menos es más
+- La estructura precede al código
+- No abandonar
+
+-------------------------------------------------------
+10. ESTADO ACTUAL DEL PROCESO
+-------------------------------------------------------
+- Proyecto activo y coherente
+- Evento crítico definido y validado
+- Estructura de datos establecida
+- Base sólida para introducir lógica y datos reales más adelante
+
+El proceso se encuentra listo para continuar sin redundancias
+desde el siguiente nivel formativo.
+
+Este documento garantiza continuidad inmediata del proceso
+al iniciar un nuevo chat.
