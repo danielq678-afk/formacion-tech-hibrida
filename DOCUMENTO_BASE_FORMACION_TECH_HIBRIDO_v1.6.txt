@@ -1,0 +1,289 @@
+DOCUMENTO BASE – PROCESO DE FORMACIÓN TECH HÍBRIDO (v1.6)
+=======================================================
+
+Este documento consolida:
+- Documento v1.5
+- Registro real de avance hasta el DÍA 4 (20 temas)
+- Cierre formal del primer bloque técnico (HTML ? JSON ? Python)
+- Preparación explícita para continuidad sin re-explicación
+
+Este documento es el ancla de continuidad del proceso.
+
+-------------------------------------------------------
+1. IDENTIDAD GENERAL
+-------------------------------------------------------
+Profesional con base en Administración de Empresas, Especialización en Gerencia de Proyectos y amplia experiencia en industria manufacturera, automatización y robótica.
+
+Perfil técnico-operativo con:
+- Experiencia liderando equipos de 20 a 40 personas
+- Facilitador de Producción
+- Experto en procesos de esmaltado robotizado y manual
+- Más de 5 años programando robots KUKA
+- Experiencia en puesta en marcha de maquinaria
+- Trabajo transversal con ingeniería, TI e I+D
+- Conocimiento práctico de CAPEX, OPEX y evaluación financiera
+- Cinturón Verde Lean Six Sigma
+
+-------------------------------------------------------
+2. SITUACIÓN LABORAL ACTUAL
+-------------------------------------------------------
+- Salario actual: 5.5 millones COP
+- Rol percibido como operativo
+- Reconocimiento técnico informal sin impacto salarial
+- Alta dependencia de proveedores externos
+- Frustración por subutilización de capacidades
+- Turnos nocturnos con alta carga emocional
+
+-------------------------------------------------------
+3. OBJETIVO ESTRATÉGICO
+-------------------------------------------------------
+Meta 2026:
+- Rol tech híbrido con salario mínimo 8M COP
+
+Meta 2027:
+- Inglés como acelerador profesional
+
+Estrategia:
+- No competir como programador junior
+- Convertir experiencia industrial en ventaja diferencial
+- Traducir operación industrial a software
+- Reducir dependencia técnica
+- Poder migrar entre industrias mediante software y datos
+
+-------------------------------------------------------
+4. PERFIL TECH HÍBRIDO DEFINIDO
+-------------------------------------------------------
+Profesional con experiencia en operación industrial crítica que incorpora desarrollo de software para:
+
+- Modelar sistemas productivos
+- Representar eventos industriales como datos
+- Automatizar análisis y toma de decisiones
+- Reducir dependencia de terceros
+- Servir de puente entre planta, negocio y tecnología
+
+-------------------------------------------------------
+5. PROYECTO FORMATIVO CENTRAL
+-------------------------------------------------------
+Nombre:
+Proyecto Macro – Célula 4
+
+Propósito:
+Aprender a traducir eventos reales de planta (paros de célula de esmaltado)
+a estructuras de software comprensibles, trazables y analizables.
+
+Este proyecto:
+- NO busca un producto final
+- NO busca optimización inmediata
+- SÍ busca formar criterio técnico sólido
+
+-------------------------------------------------------
+6. EVENTO CRÍTICO DEL SISTEMA
+-------------------------------------------------------
+Evento central:
+Paro de la célula de esmaltado
+
+El paro se entiende como EVENTO DEL SISTEMA,
+no solo como una detención física.
+
+-------------------------------------------------------
+7. ESTRUCTURA ESTÁNDAR DEL EVENTO (CONGELADA)
+-------------------------------------------------------
+Campos definitivos del evento de paro:
+
+Número de célula
+
+Tipo de evento
+
+Causa
+
+Duración (minutos)
+
+Estado
+
+? Observación no se registra en sistema
+?? Se gestiona mediante conversación directa con operarios
+
+La estructura:
+
+nace de experiencia real
+
+está validada por repetición
+
+se congela conscientemente
+
+-------------------------------------------------------
+8. REGISTRO DEL PROCESO REAL (TEMAS 1–20)
+-------------------------------------------------------
+
+DÍA 1 – TEMAS 1 A 5
+------------------
+Tema 01: Preparación del entorno de trabajo  
+Tema 02: Primer contacto con HTML como estructura  
+Tema 03: Comprensión de HTML como contenedor, no programación  
+Tema 04: Creación de archivo index.html  
+Tema 05: Modelo mental de documento técnico en HTML  
+
+Resultado:
+- HTML entendido como estructura informativa
+- Inicio del proyecto formativo
+
+---
+
+DÍA 2 – TEMAS 6 A 10
+-------------------
+Tema 06: Inicialización de repositorio Git  
+Tema 07: Primer commit consciente  
+Tema 08: Flujo local de trabajo validado  
+Tema 09: Repositorio en GitHub  
+Tema 10: Trabajo multi-dispositivo (dos computadores)
+
+Resultado:
+- Proyecto accesible desde distintos equipos
+- Continuidad garantizada
+
+---
+
+DÍA 3 – TEMAS 11 A 15
+--------------------
+Tema 11: Introducción del concepto de evento  
+Tema 12: Primer evento de paro simulado  
+Tema 13: Descomposición del paro en campos  
+Tema 14: Validación por repetición  
+Tema 15: Confirmación y cierre de la estructura del evento  
+
+Resultado:
+- Evento industrial convertido en información estructurada
+- Modelo de datos definido y estable
+
+---
+
+DÍA 4 – TEMAS 16 A 20 (1h 15 min)
+--------------------------------
+Tema 16: Representación HTML de un evento de paro  
+Tema 17: Repetición de eventos (consistencia estructural)  
+Tema 18: Agrupación de eventos como log del sistema  
+Tema 19: Separación entre estructura y datos  
+Tema 20: Traducción a JSON y lectura desde Python  
+
+DÍA 5 – TEMAS 21 A 25 (˜ 1.5 h reales)
+Tema 21: Lectura real de eventos desde JSON
+Carga correcta del archivo paros.json
+Identificación de estructura real (log_paros_celula)
+Diferencia entre objeto y lista
+Comprensión de errores de conteo
+Resultado:
+El sistema de eventos es correctamente leído desde Python.
+
+Tema 22: Conteo real de paros
+Uso correcto de len() sobre la lista de eventos
+Identificación de errores conceptuales comunes
+Métrica válida: cantidad total de paros
+Resultado:Primera métrica industrial válida obtenida por software.
+
+Tema 23: Duración total del paro
+Recorrido de eventos
+Suma del campo duracion_minutos
+Conversión de eventos ? impacto acumulado
+Resultado:Métrica real: tiempo total detenido del sistema.
+
+Tema 24: Diseño del alimentador de paros (conceptual)
+Cambio de rol: de analista a diseñador de sistema
+Identificación del usuario real (operario)
+Definición de restricciones:
+1 computador
+4 máquinas
+uso con mouse
+operarios de edad avanzada
+registro < 30 segundos
+Resultado:
+Arquitectura definida:HTML (operario) ? JSON ? Python
+
+Tema 25: Captura operativa de eventos (diseño, no implementación)
+Decisión de NO registrar observaciones en sistema
+Lista de causas cerrada (˜20 componentes críticos)
+Inclusión de opción “Otro (para futura causa)”
+Diseño centrado en usabilidad, no en técnica
+Resultado:Modelo de captura diseñado y congelado, pendiente de implementación.
+
+Hitos del día:
+- Primer uso funcional de Python
+- Lectura real de archivos JSON
+- Comprensión práctica de rutas y directorio de ejecución
+- Error técnico entendido y resuelto conscientemente
+
+Resultado:
+- Flujo completo: Evento real ? HTML ? JSON ? Python
+- Base directa para backend, análisis de datos e IA
+
+-------------------------------------------------------
+9. PRINCIPIOS DEL PROCESO
+-------------------------------------------------------
+- Constancia > intensidad
+- Contexto real > ejercicios genéricos
+- Entender antes de avanzar
+- Menos es más
+- La estructura precede al código
+- No abandonar
+
+-------------------------------------------------------
+10. ESTADO ACTUAL DEL PROCESO
+-------------------------------------------------------
+- 5 días efectivos de trabajo
+25 temas técnicos abordados
+Lectura y análisis de eventos funcional
+Métricas reales calculadas
+Infraestructura estable (Git, rutas, encoding)
+Diseño del sistema de captura definido
+Commit de cierre del bloque de análisis realizado
+El proceso está listo para pasar de análisis a captura operativa, sin retrocesos
+
+-------------------------------------------------------
+11. PRÓXIMO BLOQUE (DÍA 6)
+-------------------------------------------------------
+Objetivo general del Día 6
+Implementar el alimentador de paros usable por operarios reales.
+
+5 PROPUESTAS DE TRABAJO PARA MAÑANA
+Congelar la lista cerrada de causas
+Validación de ˜20 componentes críticos
+Definición de nomenclatura clara para operario
+Diseño del formulario HTML (UX primero)
+Letras grandes
+Alto contraste
+Flujo de clics mínimo
+Pensado para mouse y edad avanzada
+Implementación del formulario HTML mínimo viable
+Sin JavaScript avanzado
+Sin validaciones complejas
+Sin observaciones
+Definición del JSON de entrada generado por el formulario
+Estructura alineada con el log existente
+Sin romper métricas actuales
+Revisión del flujo completo extremo a extremo
+Operario ? formulario ? JSON ? Python
+Validación conceptual de uso real en planta
+
+12. COMPROMISOS DE ENTREGA (TU PARTE)
+Para iniciar el Día 6 con fluidez, tus compromisos son:
+
+Entregar la lista cerrada de causas de paro
+˜20 componentes
+
+Nombres simples, reconocibles por operario
+Confirmar si las causas aplican a:
+
+todas las células
+o si alguna es específica (opcional)
+
+Mantener la decisión:
+sin observaciones en sistema
+
+conversación humana como complemento
+Con eso, no necesitamos nada más para avanzar.
+
+NOTA FINAL (importante)
+
+Este documento no es un resumen, es un registro técnico de decisiones.
+Cualquier paso futuro parte desde aquí, no se reexplica ni se corrige hacia atrás.
+
+FIN DEL DOCUMENTO v1.6
