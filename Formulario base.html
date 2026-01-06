@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Paro – Célula de Esmaltado</title>
+</head>
+
+<body>
+
+    <h1>Registro de Paro</h1>
+
+    <form>
+
+        <!-- 1. Operario -->
+        <fieldset>
+            <legend><strong>Operario</strong></legend>
+
+            <label for="operario">Nombre del operario:</label><br>
+            <select id="operario" name="operario" required>
+                <option value="">Seleccione</option>
+                <option>German Muñoz</option>
+                <option>Carlos Rua</option>
+                <option>Dairon Vanegas</option>
+                <option>Jonathan Estrada</option>
+                <option>Felipe Cadavid</option>
+                <option>Camilo Niño</option>
+                <option>Faber Mesa</option>
+                <option>Gustavo Moreno</option>
+                <option>Juan Manuel Hernández</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <!-- 2. Célula -->
+        <fieldset>
+            <legend><strong>Célula</strong></legend>
+
+            <label for="celula">Número de célula:</label><br>
+            <select id="celula" name="celula" required>
+                <option value="">Seleccione</option>
+                <option value="1">Célula 1</option>
+                <option value="2">Célula 2</option>
+                <option value="3">Célula 3</option>
+                <option value="4">Célula 4</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <!-- 3. Tipo de paro -->
+        <fieldset>
+            <legend><strong>Tipo de Paro</strong></legend>
+
+            <input type="radio" id="operativo" name="tipo_paro" value="operativo" required>
+            <label for="operativo">Operativo</label><br>
+
+            <input type="radio" id="tecnico" name="tipo_paro" value="tecnico">
+            <label for="tecnico">Técnico</label>
+        </fieldset>
+
+        <br>
+
+        <!-- 4. Causa -->
+        <fieldset>
+            <legend><strong>Causa del Paro</strong></legend>
+
+            <label for="causa">Seleccione la causa:</label><br>
+            <select id="causa" name="causa" required>
+                <option value="">Seleccione</option>
+
+                <!-- Operativo -->
+                <option>Descarga</option>
+                <option>Carga</option>
+                <option>Falta producción</option>
+
+                <!-- Técnico (lista general, se filtrará después) -->
+                <option>Conveyor entrada</option>
+                <option>Sensores</option>
+                <option>Elevador</option>
+                <option>Motor de extracción</option>
+                <option>Sistema llenado</option>
+                <option>Robot</option>
+                <option>Pistola</option>
+                <option>GDS</option>
+                <option>Otros</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <!-- 5. Duración -->
+        <fieldset>
+            <legend><strong>Duración</strong></legend>
+
+            <label for="duracion">Duración del paro (minutos):</label><br>
+            <input type="number" id="duracion" name="duracion_minutos" min="1" required>
+        </fieldset>
+
+        <br>
+
+        <!-- 6. Envío -->
+        <button type="submit">Registrar Paro</button>
+
+    </form>
+
+</body>
+</html>
