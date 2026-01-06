@@ -1,18 +1,3 @@
 {
-  "log_paros_celula": [
-    {
-      "tipo_evento": "Paro técnico",
-      "causa": "Error de comunicación con PLC",
-      "duracion_minutos": 8,
-      "estado": "Resuelto",
-      "observacion": "Se reinició la comunicación y se validó señal"
-    },
-    {
-      "tipo_evento": "Paro operativo",
-      "causa": "Falta de material en estación de entrada",
-      "duracion_minutos": 20,
-      "estado": "Pendiente",
-      "observacion": "Se espera reposición de material por logística"
-    }
-  ]
+    "log_paros_celula": []
 }
