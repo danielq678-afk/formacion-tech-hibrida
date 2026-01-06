@@ -1,3 +1,11 @@
 {
-    "log_paros_celula": []
+    "log_paros_celula": [
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Sensor llenado",
+            "duracion_minutos": 15,
+            "estado": "cerrado"
+        }
+    ]
 }
