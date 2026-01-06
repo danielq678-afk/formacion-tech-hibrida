@@ -1,0 +1,87 @@
+Nombre.
+German Muñoz
+Carlos rua
+Dairon Vanegas
+Jonathan estrada
+Felipe Cadavid 
+Camilo Niño
+Faber mesa
+Gustavo moreno 
+Juan Manuel Hernández 
+
+- Paro operativo (celulas 1-2-3)
+Descarga
+Carga
+Falta producción 
+
+- Paro Tecnico
+Conveyor entrada
+Sensores
+Escuadra 
+Elevador 1
+Elevador 2
+Cadenas 
+Conveyor salida
+Sensores conveyor de salida
+Motor de extracción
+Centralina
+Correas
+Esponjas
+Cabina
+Torretas 
+Giostra
+Puertas cabina
+Sifón 
+Sensor llenado 
+Sensor presencia 
+Cilindros de llenado
+Sistema llenado 
+Bomba
+Tamiz
+Válvula ficher llenado
+GDS
+Válvulas de GDS
+Sensores tanque
+Robot manipulador 
+Pinzas
+Cilindros de pinzas
+Perfiles
+Angulos
+Robot esmaltador
+Pistola
+
+- Paro operativo (celulas 4)
+Descarga
+Carga
+Falta producción
+
+- Paro Técnico
+Línea A
+Sensores Linea A
+Elevadores Linea A
+Servo Linea A
+Línea B
+Sensores Linea B
+Servo LInea B
+Elevadores Linea B
+Torreta 1
+Limpiador Torreta 1
+Torreta 2
+Limpiador Torreta 2
+Línea C
+Sensores Linea C
+Elevadores Linea C
+Motor de extracción
+Sifón 
+Sensor llenado sifón
+Sensor presencia sifón
+Cilindros sifón
+Sistema llenado 
+Bomba
+Tamiz
+Válvula ficher sifón
+Valvulas ficher GDS
+GDS
+Pistola
+Válvulas PV de GDS
+Sensores tanque
