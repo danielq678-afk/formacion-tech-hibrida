@@ -177,6 +177,9 @@
          <input type="hidden" name="estado" value="cerrado">
 
         <button type="submit" id="btnRegistrar" disabled>Registrar Paro</button>
+        <p id="mensajeAyuda" style="color:red; display:none;">
+        Seleccione célula y causa para continuar.
+        </p>
 
 
     </form>
@@ -186,6 +189,7 @@
         const causa123 = document.getElementById("causa_123");
         const causa4 = document.getElementById("causa_4");
         const btnRegistrar = document.getElementById("btnRegistrar");
+        const mensajeAyuda = document.getElementById("mensajeAyuda");
 
         function actualizarCausas() {
             causa123.style.display = "none";
@@ -193,6 +197,7 @@
             causa123.value = "";
             causa4.value = "";
             btnRegistrar.disabled = true;
+            mensajeAyuda.style.display = "block";
 
             if (celulaSelect.value === "4") {
                 causa4.style.display = "block";
@@ -211,8 +216,10 @@
                 (causa4.style.display === "block" && causa4.value !== "")
             ) {
                 btnRegistrar.disabled = false;
+                mensajeAyuda.style.display = "none";
             } else {
             btnRegistrar.disabled = true;
+            mensajeAyuda.style.display = "block";
             }
         }
 
