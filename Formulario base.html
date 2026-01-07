@@ -63,18 +63,20 @@
 
         <!-- 4. Causa -->
         <fieldset>
-            <legend><strong>Causa del Paro</strong></legend>
+             <legend><strong>Causa del Paro</strong></legend>
 
             <label for="causa">Seleccione la causa:</label><br>
-            <select id="causa" name="causa" required>
-                <option value="">Seleccione</option>
 
-                <!-- OPERATIVO (Células 1-2-3 y 4) -->
+             <!-- Causas células 1-2-3 -->
+            <select id="causa_123" name="causa" style="display:none;" required>
+                 <option value="">Seleccione</option>
+
+                 <!-- Operativo -->
                 <option>Descarga</option>
                 <option>Carga</option>
                 <option>Falta producción</option>
 
-                <!-- TÉCNICO – CÉLULAS 1-2-3 -->
+                <!-- Técnico -->
                 <option>Conveyor entrada</option>
                 <option>Sensores</option>
                 <option>Escuadra</option>
@@ -110,7 +112,19 @@
                 <option>Robot esmaltador</option>
                 <option>Pistola</option>
 
-                <!-- TÉCNICO – CÉLULA 4 -->
+                <option>Otro (para futura causa)</option>
+            </select>
+
+            <!-- Causas célula 4 -->
+            <select id="causa_4" name="causa" style="display:none;" required>
+                <option value="">Seleccione</option>
+
+                <!-- Operativo -->
+                <option>Descarga</option>
+                <option>Carga</option>
+                <option>Falta producción</option>
+
+                <!-- Técnico -->
                 <option>Línea A</option>
                 <option>Sensores Línea A</option>
                 <option>Elevadores Línea A</option>
@@ -141,11 +155,10 @@
                 <option>Válvulas PV de GDS</option>
                 <option>Sensores tanque</option>
 
-                <!-- FUTURO -->
                 <option>Otro (para futura causa)</option>
-
-         </select>
+            </select>
         </fieldset>
+
 
 
         <br>
@@ -167,5 +180,29 @@
 
     </form>
 
+    <script>
+    const celulaSelect = document.getElementById("celula");
+    const causa123 = document.getElementById("causa_123");
+    const causa4 = document.getElementById("causa_4");
+
+    function actualizarCausas() {
+        causa123.style.display = "none";
+        causa4.style.display = "none";
+        causa123.value = "";
+        causa4.value = "";
+
+        if (celulaSelect.value === "4") {
+            causa4.style.display = "block";
+        } else if (
+            celulaSelect.value === "1" ||
+            celulaSelect.value === "2" ||
+            celulaSelect.value === "3"
+        ) {
+            causa123.style.display = "block";
+        }
+    }
+
+    celulaSelect.addEventListener("change", actualizarCausas);
+    </script>
 </body>
 </html>
