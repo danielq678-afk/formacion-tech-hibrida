@@ -1,0 +1,242 @@
+DOCUMENTO BASE – PROCESO DE FORMACIÓN TECH HÍBRIDO (v1.8)
+=======================================================
+
+Este documento consolida:
+- Registro completo del proceso desde el Día 1
+- Cierre del Bloque A (endurecimiento de la captura)
+- Inicio del Bloque B (endurecimiento de la persistencia)
+
+Este documento NO explica.
+Registra decisiones, estado y continuidad.
+Es el ÚNICO documento base vivo del proceso.
+
+-------------------------------------------------------
+1. IDENTIDAD GENERAL
+-------------------------------------------------------
+
+Profesional con base en Administración de Empresas, Especialización en Gerencia de Proyectos y amplia experiencia en industria manufacturera, automatización y robótica.
+
+Perfil técnico-operativo con:
+- Experiencia liderando equipos de 20 a 40 personas
+- Facilitador de Producción
+- Experto en procesos de esmaltado robotizado y manual
+- Más de 5 años programando robots KUKA
+- Experiencia en puesta en marcha de maquinaria
+- Trabajo transversal con ingeniería, TI e I+D
+- Conocimiento práctico de CAPEX, OPEX y evaluación financiera
+- Cinturón Verde Lean Six Sigma
+
+-------------------------------------------------------
+2. SITUACIÓN LABORAL ACTUAL
+-------------------------------------------------------
+
+- Salario actual: 5.5 millones COP
+- Rol percibido como operativo
+- Reconocimiento técnico informal sin impacto salarial
+- Alta dependencia de proveedores externos
+- Frustración por subutilización de capacidades
+- Turnos nocturnos con alta carga emocional
+
+-------------------------------------------------------
+3. OBJETIVO ESTRATÉGICO
+-------------------------------------------------------
+
+Meta 2026:
+- Rol tech híbrido con salario mínimo 8M COP
+
+Meta 2027:
+- Inglés como acelerador profesional
+
+Estrategia:
+- No competir como programador junior
+- Convertir experiencia industrial en ventaja diferencial
+- Traducir operación industrial a software
+- Reducir dependencia técnica
+- Poder migrar entre industrias mediante software y datos
+
+-------------------------------------------------------
+4. PERFIL TECH HÍBRIDO DEFINIDO
+-------------------------------------------------------
+
+Profesional con experiencia en operación industrial crítica que incorpora desarrollo de software para:
+
+- Modelar sistemas productivos
+- Representar eventos industriales como datos
+- Automatizar análisis y toma de decisiones
+- Reducir dependencia de terceros
+- Servir de puente entre planta, negocio y tecnología
+
+-------------------------------------------------------
+5. PROYECTO FORMATIVO CENTRAL
+-------------------------------------------------------
+
+Nombre:
+Proyecto Macro – Célula 4
+
+Propósito:
+Aprender a traducir eventos reales de planta (paros de célula de esmaltado)
+a estructuras de software comprensibles, trazables y analizables.
+
+Este proyecto:
+- NO busca un producto final
+- NO busca optimización inmediata
+- SÍ busca formar criterio técnico sólido
+
+-------------------------------------------------------
+6. EVENTO CRÍTICO DEL SISTEMA
+-------------------------------------------------------
+
+Evento central:
+Paro de la célula de esmaltado
+
+El paro se entiende como EVENTO DEL SISTEMA,
+no solo como una detención física.
+
+-------------------------------------------------------
+7. ESTRUCTURA ESTÁNDAR DEL EVENTO (CONGELADA)
+-------------------------------------------------------
+
+Campos definitivos del evento:
+
+- celula
+- tipo_evento
+- causa
+- duracion_minutos
+- estado
+
+Decisiones asociadas:
+- No se registran observaciones en el sistema
+- La conversación humana complementa el registro
+- El estado del evento es definido por el sistema
+
+Esta estructura:
+- nace de experiencia real
+- está validada por repetición
+- se congela conscientemente
+
+-------------------------------------------------------
+8. REGISTRO DEL PROCESO REAL
+-------------------------------------------------------
+
+DÍA 1 – BASE Y CONTEXTO
+----------------------
+- Preparación del entorno de trabajo
+- Introducción a HTML como estructura, no como programación
+- Creación del primer documento técnico
+- Modelo mental de documento estructurado
+
+DÍA 2 – CONTROL DE VERSIONES
+----------------------------
+- Inicialización de repositorio Git
+- Primer commit consciente
+- Flujo local validado
+- Repositorio en GitHub
+- Trabajo multi-dispositivo garantizado
+
+DÍA 3 – MODELADO DEL EVENTO
+---------------------------
+- Introducción del concepto de evento
+- Simulación de paros reales
+- Descomposición en campos
+- Validación por repetición
+- Congelación de la estructura del evento
+
+DÍA 4 – REPRESENTACIÓN Y DATOS
+------------------------------
+- Representación HTML de eventos
+- Repetición estructural
+- Agrupación como log
+- Separación estructura / datos
+- Traducción a JSON
+- Lectura inicial desde Python
+
+DÍA 5 – ANÁLISIS FUNCIONAL
+--------------------------
+- Lectura real de eventos desde JSON
+- Conteo correcto de paros
+- Cálculo de tiempo total detenido
+- Diseño conceptual del alimentador de paros
+- Definición de arquitectura HTML → JSON → Python
+
+DÍA 6 – CAPTURA Y PERSISTENCIA BÁSICA
+------------------------------------
+- Implementación del formulario HTML mínimo viable
+- Inclusión de identificación de operario
+- Alineación del formulario con el evento
+- Visualización directa del evento capturado
+- Definición del modelo JSON de entrada
+- Primer script Python de persistencia
+- Limpieza consciente del log y reinicio del sistema
+
+DÍA 7 – BLOQUE A: ENDURECIMIENTO DE LA CAPTURA (CERRADO)
+--------------------------------------------------------
+
+Tema 33: Filtrado de causas por célula
+- Células 1–2–3 comparten lista
+- Célula 4 tiene lista independiente
+- El operario solo ve causas válidas
+
+Tema 34: Inicialización correcta del formulario
+- La lista correcta se muestra desde la carga
+- No depende de interacción previa
+
+Tema 35: Prevención de eventos incompletos
+- Botón de registro bloqueado hasta selección válida
+- Error humano prevenido desde origen
+
+Tema 36: Guía visual mínima para el operario
+- Mensaje simple cuando faltan datos
+- El sistema se explica solo
+
+Resultado del Bloque A:
+- Captura robusta y guiada
+- Evento válido garantizado antes de persistir
+- No se modifica estructura ni backend
+
+DÍA 7 – BLOQUE B: ENDURECIMIENTO DE LA PERSISTENCIA (INICIADO)
+--------------------------------------------------------------
+
+Tema 37: Persistencia segura del log de eventos
+- El log se crea si no existe
+- La estructura del log se protege
+- Ningún evento previo se pierde
+
+Estado:
+- Bloque B iniciado
+- Pendiente cierre completo
+
+-------------------------------------------------------
+9. PRINCIPIOS DEL PROCESO
+-------------------------------------------------------
+
+- Constancia > intensidad
+- Contexto real > ejercicios genéricos
+- Entender antes de avanzar
+- Menos es más
+- La estructura precede al código
+- No abandonar
+
+-------------------------------------------------------
+10. ESTADO ACTUAL DEL PROCESO
+-------------------------------------------------------
+
+- 7 días efectivos de trabajo
+- Bloque A completamente cerrado
+- Bloque B iniciado
+- Evento industrial estable y congelado
+- Sistema confiable desde captura hasta log
+- Infraestructura sólida (HTML, JS mínimo, JSON, Python, Git)
+
+-------------------------------------------------------
+11. NOTA DE CONTINUIDAD
+-------------------------------------------------------
+
+El proceso queda listo para:
+- Cerrar completamente el Bloque B
+- Avanzar al Bloque C (explotación del dato)
+
+No se reexplica.
+No se corrige hacia atrás.
+Se continúa exclusivamente desde este estado.
+
+FIN DEL DOCUMENTO v1.8
