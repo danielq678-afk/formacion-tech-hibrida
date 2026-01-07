@@ -176,33 +176,52 @@
         <!-- 6. Envío -->
          <input type="hidden" name="estado" value="cerrado">
 
-        <button type="submit">Registrar Paro</button>
+        <button type="submit" id="btnRegistrar" disabled>Registrar Paro</button>
+
 
     </form>
 
     <script>
-    const celulaSelect = document.getElementById("celula");
-    const causa123 = document.getElementById("causa_123");
-    const causa4 = document.getElementById("causa_4");
+        const celulaSelect = document.getElementById("celula");
+        const causa123 = document.getElementById("causa_123");
+        const causa4 = document.getElementById("causa_4");
+        const btnRegistrar = document.getElementById("btnRegistrar");
 
-    function actualizarCausas() {
-        causa123.style.display = "none";
-        causa4.style.display = "none";
-        causa123.value = "";
-        causa4.value = "";
+        function actualizarCausas() {
+            causa123.style.display = "none";
+            causa4.style.display = "none";
+            causa123.value = "";
+            causa4.value = "";
+            btnRegistrar.disabled = true;
 
-        if (celulaSelect.value === "4") {
-            causa4.style.display = "block";
-        } else if (
-            celulaSelect.value === "1" ||
-            celulaSelect.value === "2" ||
-            celulaSelect.value === "3"
-        ) {
-            causa123.style.display = "block";
+            if (celulaSelect.value === "4") {
+                causa4.style.display = "block";
+            } else if (
+                celulaSelect.value === "1" ||
+                celulaSelect.value === "2" ||
+                celulaSelect.value === "3"
+            ) {
+                causa123.style.display = "block";
+            }
         }
-    }
 
-    celulaSelect.addEventListener("change", actualizarCausas);
+        function validarFormulario() {
+            if (
+                (causa123.style.display === "block" && causa123.value !== "") ||
+                (causa4.style.display === "block" && causa4.value !== "")
+            ) {
+                btnRegistrar.disabled = false;
+            } else {
+            btnRegistrar.disabled = true;
+            }
+        }
+
+        celulaSelect.addEventListener("change", actualizarCausas);
+        causa123.addEventListener("change", validarFormulario);
+        causa4.addEventListener("change", validarFormulario);
+
+        actualizarCausas();
     </script>
+
 </body>
 </html>
