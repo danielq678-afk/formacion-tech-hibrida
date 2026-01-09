@@ -103,3 +103,30 @@ for evento in eventos:
 print("\nNúmero de paros por célula:")
 for celula, cantidad in sorted(conteo_por_celula.items()):
     print(f"- Célula {celula}: {cantidad} paros")
+
+# =====================================================
+# D1 — Exportación estable a CSV
+# =====================================================
+
+import csv
+
+# ---- CSV 1: Tiempo total por causa ----
+
+with open("resumen_tiempo_por_causa.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["causa", "tiempo_total_minutos"])
+    for causa, tiempo in sorted(tiempo_por_causa.items(), key=lambda x: x[1], reverse=True):
+        writer.writerow([causa, tiempo])
+
+print("\nArchivo generado: resumen_tiempo_por_causa.csv")
+
+# ---- CSV 2: Frecuencia de eventos por causa ----
+
+with open("resumen_frecuencia_por_causa.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["causa", "numero_eventos"])
+    for causa, cantidad in sorted(conteo_por_causa.items(), key=lambda x: x[1], reverse=True):
+        writer.writerow([causa, cantidad])
+
+print("Archivo generado: resumen_frecuencia_por_causa.csv")
+
