@@ -1,3 +1,49 @@
 {
-   
+  "log_paros_celula": [
+    {
+      "celula": 1,
+      "tipo_evento": "operativo",
+      "causa": "Descarga",
+      "duracion_minutos": 8,
+      "estado": "cerrado",
+      "id_evento": "evt-001",
+      "timestamp": "2026-01-08T06:10:00"
+    },
+    {
+      "celula": 2,
+      "tipo_evento": "tecnico",
+      "causa": "Sensor llenado",
+      "duracion_minutos": 15,
+      "estado": "cerrado",
+      "id_evento": "evt-002",
+      "timestamp": "2026-01-08T07:25:00"
+    },
+    {
+      "celula": 3,
+      "tipo_evento": "operativo",
+      "causa": "Falta producción",
+      "duracion_minutos": 12,
+      "estado": "cerrado",
+      "id_evento": "evt-003",
+      "timestamp": "2026-01-08T09:40:00"
+    },
+    {
+      "celula": 4,
+      "tipo_evento": "tecnico",
+      "causa": "Línea A",
+      "duracion_minutos": 20,
+      "estado": "cerrado",
+      "id_evento": "evt-004",
+      "timestamp": "2026-01-08T11:05:00"
+    },
+    {
+      "celula": 2,
+      "tipo_evento": "tecnico",
+      "causa": "Bomba",
+      "duracion_minutos": 10,
+      "estado": "cerrado",
+      "id_evento": "evt-005",
+      "timestamp": "2026-01-08T14:30:00"
+    }
+  ]
 }

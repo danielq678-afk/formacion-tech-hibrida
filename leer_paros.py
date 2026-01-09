@@ -1,4 +1,7 @@
 import json
+import os
+print("Leyendo paros.json desde:", os.getcwd())
+
 
 ARCHIVO_LOG = "paros.json"
 
@@ -19,3 +22,11 @@ for evento in eventos[-5:]:
         f"{evento['causa']} | "
         f"{evento['duracion_minutos']} min"
     )
+# ---- C1: Tiempo total detenido ----
+
+tiempo_total = sum(
+    evento["duracion_minutos"]
+    for evento in eventos
+)
+
+print("\nTiempo total detenido:", tiempo_total, "minutos")
