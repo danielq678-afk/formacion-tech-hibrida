@@ -30,3 +30,76 @@ tiempo_total = sum(
 )
 
 print("\nTiempo total detenido:", tiempo_total, "minutos")
+
+# ---- C2: Tiempo detenido por célula ----
+
+tiempo_por_celula = {}
+
+for evento in eventos:
+    celula = evento["celula"]
+    tiempo_por_celula[celula] = tiempo_por_celula.get(celula, 0) + evento["duracion_minutos"]
+
+print("\nTiempo detenido por célula:")
+for celula, tiempo in sorted(tiempo_por_celula.items()):
+    print(f"- Célula {celula}: {tiempo} minutos")
+
+# ---- C3: Tiempo detenido por causa ----
+
+tiempo_por_causa = {}
+
+for evento in eventos:
+    causa = evento["causa"]
+    tiempo_por_causa[causa] = tiempo_por_causa.get(causa, 0) + evento["duracion_minutos"]
+
+print("\nTiempo detenido por causa:")
+for causa, tiempo in sorted(tiempo_por_causa.items(), key=lambda x: x[1], reverse=True):
+    print(f"- {causa}: {tiempo} minutos")
+
+# ---- C4: Top 3 causas por tiempo detenido ----
+
+top_n = 3
+top_causas = sorted(
+    tiempo_por_causa.items(),
+    key=lambda x: x[1],
+    reverse=True
+)[:top_n]
+
+print(f"\nTop {top_n} causas por tiempo detenido:")
+for causa, tiempo in top_causas:
+    print(f"- {causa}: {tiempo} minutos")
+
+# ---- C5: Exportar resumen por causa a CSV ----
+
+import csv
+
+with open("resumen_por_causa.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["causa", "tiempo_minutos"])
+    for causa, tiempo in tiempo_por_causa.items():
+        writer.writerow([causa, tiempo])
+
+print("\nArchivo 'resumen_por_causa.csv' generado.")
+
+# ---- C6.1: Número de paros por causa ----
+
+conteo_por_causa = {}
+
+for evento in eventos:
+    causa = evento["causa"]
+    conteo_por_causa[causa] = conteo_por_causa.get(causa, 0) + 1
+
+print("\nNúmero de paros por causa:")
+for causa, cantidad in sorted(conteo_por_causa.items(), key=lambda x: x[1], reverse=True):
+    print(f"- {causa}: {cantidad} paros")
+
+# ---- C6.2: Número de paros por célula ----
+
+conteo_por_celula = {}
+
+for evento in eventos:
+    celula = evento["celula"]
+    conteo_por_celula[celula] = conteo_por_celula.get(celula, 0) + 1
+
+print("\nNúmero de paros por célula:")
+for celula, cantidad in sorted(conteo_por_celula.items()):
+    print(f"- Célula {celula}: {cantidad} paros")
