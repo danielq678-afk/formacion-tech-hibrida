@@ -1,19 +1,21 @@
 import json
 
-with open("paros.json", "r", encoding="utf-8") as archivo:
-    datos = json.load(archivo)
+ARCHIVO_LOG = "paros.json"
 
-lista_paros = datos["log_paros_celula"]
+# Leer log de paros
+with open(ARCHIVO_LOG, "r", encoding="utf-8") as f:
+    datos_log = json.load(f)
 
-# Métrica 1: cantidad de paros
-total_paros = len(lista_paros)
+eventos = datos_log.get("log_paros_celula", [])
 
-# Métrica 2: duración total
-duracion_total = 0
-for paro in lista_paros:
-    duracion_total += paro["duracion_minutos"]
+print("Total de paros registrados:", len(eventos))
 
-print("Total de paros registrados:", total_paros)
-print("Duración total del paro:", duracion_total, "minutos")
-
-
+# Mostrar últimos paros (máx 5)
+print("\nÚltimos paros:")
+for evento in eventos[-5:]:
+    print(
+        f"- Célula {evento['celula']} | "
+        f"{evento['tipo_evento']} | "
+        f"{evento['causa']} | "
+        f"{evento['duracion_minutos']} min"
+    )

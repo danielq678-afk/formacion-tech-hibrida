@@ -1,0 +1,61 @@
+┌────────────────────────┐
+│        index.html       │
+│  (Interfaz de captura)  │
+│                         │
+│ - Operario ingresa datos│
+│ - Validaciones visuales │
+│ - No persiste datos     │
+└───────────┬────────────┘
+            │
+            │  Evento capturado
+            │  (datos en memoria / simulación)
+            ▼
+┌────────────────────────┐
+│  paros_formulario.json │
+│   (Evento transitorio) │
+│                        │
+│ - Contiene UN evento   │
+│ - Representa lo último │
+│ - Puede no existir     │
+│ - No es histórico      │
+└───────────┬────────────┘
+            │
+            │  Evento validado
+            │
+            ▼
+┌────────────────────────┐
+│     agregar_paro.py    │
+│ (Persistencia segura)  │
+│                        │
+│ - Lee evento de entrada│
+│ - Asigna ID único      │
+│ - Asigna timestamp     │
+│ - Protege el histórico │
+│ - Tolera estados raros │
+└───────────┬────────────┘
+            │
+            │  Evento permanente
+            │
+            ▼
+┌────────────────────────┐
+│       paros.json       │
+│   (Histórico real)     │
+│                        │
+│ - Todos los eventos    │
+│ - Nunca se borra       │
+│ - Fuente de verdad     │
+│ - Crece con el tiempo  │
+└───────────┬────────────┘
+            │
+            │  Lectura / análisis
+            │
+            ▼
+┌────────────────────────┐
+│     leer_paros.py      │
+│  (Lectura / métricas)  │
+│                        │
+│ - Solo lee             │
+│ - Cuenta eventos       │
+│ - Resume información   │
+│ - No modifica datos    │
+└────────────────────────┘
