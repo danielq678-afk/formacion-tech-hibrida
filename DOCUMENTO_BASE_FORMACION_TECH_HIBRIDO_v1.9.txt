@@ -1,0 +1,314 @@
+DOCUMENTO BASE – PROCESO DE FORMACIÓN TECH HÍBRIDO (v1.9)
+=======================================================
+
+Este documento registra de forma completa, continua y explicativa
+el proceso de formación tech híbrido desarrollado hasta la fecha.
+
+Es el ÚNICO documento base vivo del proceso.
+Reemplaza completamente versiones anteriores.
+
+-------------------------------------------------------
+1. IDENTIDAD GENERAL
+-------------------------------------------------------
+
+Profesional con base en Administración de Empresas, Especialización en Gerencia de Proyectos y amplia experiencia en industria manufacturera, automatización y robótica.
+
+Perfil técnico-operativo con:
+- Experiencia liderando equipos de 20 a 40 personas
+- Facilitador de Producción
+- Experto en procesos de esmaltado robotizado y manual
+- Más de 5 años programando robots KUKA
+- Experiencia en puesta en marcha de maquinaria
+- Trabajo transversal con ingeniería, TI e I+D
+- Conocimiento práctico de CAPEX, OPEX y evaluación financiera
+- Cinturón Verde Lean Six Sigma
+
+-------------------------------------------------------
+2. SITUACIÓN LABORAL ACTUAL
+-------------------------------------------------------
+
+- Rol percibido como operativo, no estratégico
+- Salario actual aproximado: 5.5 millones COP
+- Reconocimiento técnico informal sin impacto salarial
+- Alta dependencia de proveedores externos
+- Participación activa en solución de problemas complejos
+- Frustración por subutilización del criterio técnico
+- Turnos nocturnos con alta carga emocional y cognitiva
+
+-------------------------------------------------------
+3. OBJETIVO ESTRATÉGICO DEL PROCESO
+-------------------------------------------------------
+
+Objetivo principal:
+- Evolucionar hacia un perfil TECH HÍBRIDO capaz de diseñar, entender y operar sistemas que representen la realidad industrial.
+
+Metas temporales:
+- 2026: rol híbrido con impacto técnico y salarial (≥ 8M COP)
+- 2027: inglés como acelerador profesional
+
+Estrategia consciente:
+- No competir como programador junior
+- Capitalizar experiencia industrial como ventaja diferencial
+- Traducir operación real a sistemas digitales
+- Reducir dependencia técnica externa
+- Construir criterio antes que volumen de herramientas
+
+-------------------------------------------------------
+4. PERFIL TECH HÍBRIDO DEFINIDO
+-------------------------------------------------------
+
+Perfil objetivo:
+Profesional que combina conocimiento profundo de la operación industrial con la capacidad de:
+
+- Modelar eventos reales como datos
+- Diseñar flujos de información confiables
+- Construir sistemas simples pero robustos
+- Analizar información para toma de decisiones
+- Servir de puente entre planta, negocio y tecnología
+
+No se busca:
+- Ser desarrollador tradicional
+- Acumular frameworks
+- Optimizar prematuramente
+
+-------------------------------------------------------
+5. PROYECTO FORMATIVO CENTRAL
+-------------------------------------------------------
+
+Nombre:
+Proyecto Macro – Sistema de Paros de Células de Esmaltado
+
+Propósito:
+Usar un problema real (paros de producción) como vehículo para aprender a:
+
+- Capturar eventos
+- Persistir información
+- Analizar datos
+- Tomar decisiones técnicas con criterio industrial
+
+Este proyecto:
+- NO busca un producto final
+- NO busca automatización total
+- SÍ busca formación profunda y transferible
+
+-------------------------------------------------------
+6. DEFINICIÓN DEL EVENTO CRÍTICO
+-------------------------------------------------------
+
+Evento central:
+PARO DE CÉLULA DE ESMALTADO
+
+El paro se entiende como:
+- Evento del sistema
+- No solo una detención física
+- Unidad mínima de información relevante
+
+-------------------------------------------------------
+7. ESTRUCTURA ESTÁNDAR DEL EVENTO (CONGELADA)
+-------------------------------------------------------
+
+Campos definitivos del evento:
+
+- celula
+- tipo_evento (operativo / técnico)
+- causa
+- duracion_minutos
+- estado
+
+Decisiones conscientes:
+- No se registran observaciones en el sistema
+- La conversación humana complementa el dato
+- El estado es definido por el sistema
+- Esta estructura se congela por repetición y uso real
+
+-------------------------------------------------------
+8. ARQUITECTURA GENERAL DEL SISTEMA
+-------------------------------------------------------
+
+El sistema se divide en 3 grandes bloques:
+
+A. Captura del evento
+B. Persistencia segura
+C. Explotación del dato
+
+Principio rector:
+- Escribir una vez
+- Leer muchas veces
+- Nunca mezclar responsabilidades
+
+-------------------------------------------------------
+9. BLOQUE A – CAPTURA DEL EVENTO (CERRADO)
+-------------------------------------------------------
+
+Objetivo:
+Garantizar que el evento capturado sea válido antes de existir como dato.
+
+Herramienta:
+- index.html (HTML + JavaScript mínimo)
+
+Funciones del bloque A:
+- Interfaz para el operario
+- Validación visual y lógica
+- Prevención de errores humanos
+- Generación de un evento coherente
+
+Decisiones clave:
+- Listas de causas filtradas por célula
+- Células 1–2–3 comparten causas
+- Célula 4 tiene lista independiente
+- Inicialización correcta desde carga
+- Botón de envío controlado
+- Mensaje guía cuando falta información
+
+Resultado:
+- El operario solo puede registrar eventos válidos
+- El sistema no recibe basura
+- La estructura del evento se respeta desde origen
+
+-------------------------------------------------------
+10. BLOQUE B – PERSISTENCIA DEL EVENTO (CERRADO)
+-------------------------------------------------------
+
+Objetivo:
+Convertir un evento frágil en información histórica confiable.
+
+Concepto clave:
+Separar evento transitorio de histórico real.
+
+Archivos involucrados:
+
+1) paros_formulario.json
+- Representa UN evento
+- Es transitorio
+- Puede no existir
+- No es histórico
+
+2) agregar_paro.py
+- Puente entre captura e histórico
+- Da identidad al evento (ID + timestamp)
+- Tolera estados inconsistentes
+- Nunca borra histórico
+- Protege la estructura del log
+
+3) paros.json
+- Histórico real del sistema
+- Fuente de verdad
+- Crece en el tiempo
+- Base para análisis y decisiones
+
+Decisiones clave:
+- El sistema no se rompe si falta la entrada
+- Se permite evento de sistema como fallback
+- Se prioriza robustez sobre rigidez
+- Se separa escritura de lectura
+
+Resultado:
+- Persistencia segura
+- Eventos identificables
+- Sistema tolerante al error
+- Comprensión clara del flujo de datos
+
+-------------------------------------------------------
+11. BLOQUE C – EXPLOTACIÓN DEL DATO (CERRADO)
+-------------------------------------------------------
+
+Objetivo:
+Responder preguntas reales de operación usando el histórico.
+
+Herramienta:
+- leer_paros.py (solo lectura)
+
+Regla:
+- En C no se escriben datos
+- Solo se interpreta lo existente
+
+Métricas implementadas:
+
+C1. Tiempo total detenido
+- Responde: ¿cuánto tiempo se perdió?
+
+C2. Tiempo detenido por célula
+- Responde: ¿dónde se concentra el impacto productivo?
+
+C3. Tiempo detenido por causa
+- Responde: ¿qué causas generan más pérdida de tiempo?
+
+C4. Ranking de causas por tiempo
+- Prioriza por impacto productivo
+
+C6. Frecuencia de eventos (no por tiempo)
+- Número de paros por causa
+- Número de paros por célula
+
+Justificación industrial:
+- Paros largos ≠ paros costosos
+- Alta frecuencia implica:
+  - desgaste
+  - inventario
+  - costo oculto
+  - repetición de intervención
+
+Resultado:
+- Visión dual: impacto por tiempo vs impacto por recurrencia
+- Base sólida para decisiones de mantenimiento, rediseño o CAPEX
+
+-------------------------------------------------------
+12. LÍNEA DE VIDA DEL SISTEMA
+-------------------------------------------------------
+
+Flujo conceptual completo:
+
+index.html
+→ captura del evento (interfaz)
+
+paros_formulario.json
+→ evento transitorio
+
+agregar_paro.py
+→ persistencia segura
+
+paros.json
+→ histórico real
+
+leer_paros.py
+→ análisis y métricas
+
+-------------------------------------------------------
+13. APRENDIZAJES CLAVE DEL PROCESO
+-------------------------------------------------------
+
+- Separación de responsabilidades
+- Importancia del estado real del sistema
+- Diferencia entre ruta del script y directorio de ejecución
+- Diagnóstico basado en evidencia
+- No avanzar sin comprender
+- Diseñar para humanos y para fallos
+
+-------------------------------------------------------
+14. ESTADO ACTUAL DEL PROCESO
+-------------------------------------------------------
+
+- A: cerrado y comprendido
+- B: cerrado y comprendido
+- C: cerrado y validado
+- Sistema funcional de extremo a extremo
+- Repositorio sincronizado
+- Commits ejecutados conscientemente
+- Documentación alineada con la realidad
+
+-------------------------------------------------------
+15. NOTA DE CONTINUIDAD
+-------------------------------------------------------
+
+A partir de este punto, cualquier avance es expansión:
+- Más métricas
+- Exportación de datos
+- Automatización real
+- Integración con backend web
+- Visualización externa
+
+No se corrige hacia atrás.
+No se reexplica.
+Se construye sobre esta base.
+
+FIN DEL DOCUMENTO v1.9
