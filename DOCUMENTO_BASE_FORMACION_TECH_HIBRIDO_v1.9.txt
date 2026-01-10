@@ -1,314 +1,299 @@
-DOCUMENTO BASE – PROCESO DE FORMACIÓN TECH HÍBRIDO (v1.9)
-=======================================================
+DOCUMENTO BASE – FORMACIÓN TECH HÍBRIDO
+VERSIÓN 2.0
 
-Este documento registra de forma completa, continua y explicativa
-el proceso de formación tech híbrido desarrollado hasta la fecha.
+============================================
 
-Es el ÚNICO documento base vivo del proceso.
-Reemplaza completamente versiones anteriores.
+OBJETIVO DEL DOCUMENTO
 
--------------------------------------------------------
-1. IDENTIDAD GENERAL
--------------------------------------------------------
+Este documento consolida TODO el proceso realizado hasta la fecha en el proyecto “formacion-tech-hibrida”.
 
-Profesional con base en Administración de Empresas, Especialización en Gerencia de Proyectos y amplia experiencia en industria manufacturera, automatización y robótica.
+No es un manual técnico aislado ni una guía de código.
+Es un documento de CONTEXTO, CRITERIO y OPERACIÓN.
 
-Perfil técnico-operativo con:
-- Experiencia liderando equipos de 20 a 40 personas
-- Facilitador de Producción
-- Experto en procesos de esmaltado robotizado y manual
-- Más de 5 años programando robots KUKA
-- Experiencia en puesta en marcha de maquinaria
-- Trabajo transversal con ingeniería, TI e I+D
-- Conocimiento práctico de CAPEX, OPEX y evaluación financiera
-- Cinturón Verde Lean Six Sigma
+Su objetivo es permitir:
 
--------------------------------------------------------
-2. SITUACIÓN LABORAL ACTUAL
--------------------------------------------------------
+* Retomar el proyecto sin pérdida de contexto
+* Explicar decisiones técnicas y no técnicas
+* Entender el sistema como un todo
+* Continuar el desarrollo sin rehacer ni romper
 
-- Rol percibido como operativo, no estratégico
-- Salario actual aproximado: 5.5 millones COP
-- Reconocimiento técnico informal sin impacto salarial
-- Alta dependencia de proveedores externos
-- Participación activa en solución de problemas complejos
-- Frustración por subutilización del criterio técnico
-- Turnos nocturnos con alta carga emocional y cognitiva
+============================================
 
--------------------------------------------------------
-3. OBJETIVO ESTRATÉGICO DEL PROCESO
--------------------------------------------------------
+CONTEXTO GENERAL DEL PROYECTO
 
-Objetivo principal:
-- Evolucionar hacia un perfil TECH HÍBRIDO capaz de diseñar, entender y operar sistemas que representen la realidad industrial.
+El proyecto nace con un objetivo operativo claro:
 
-Metas temporales:
-- 2026: rol híbrido con impacto técnico y salarial (≥ 8M COP)
-- 2027: inglés como acelerador profesional
+Diseñar un sistema SIMPLE para registrar paros de producción por célula, causa y duración, con el fin de obtener métricas reales que apoyen decisiones de mantenimiento y mejora.
 
-Estrategia consciente:
-- No competir como programador junior
-- Capitalizar experiencia industrial como ventaja diferencial
-- Traducir operación real a sistemas digitales
-- Reducir dependencia técnica externa
-- Construir criterio antes que volumen de herramientas
+Principios desde el inicio:
 
--------------------------------------------------------
-4. PERFIL TECH HÍBRIDO DEFINIDO
--------------------------------------------------------
+* No cambiar la operación real de planta
+* No interferir con mantenimiento
+* Capturar datos reales con mínima fricción
+* Priorizar claridad sobre complejidad
 
-Perfil objetivo:
-Profesional que combina conocimiento profundo de la operación industrial con la capacidad de:
+El sistema se construye como PILOTO OPERATIVO, no como producto final.
 
-- Modelar eventos reales como datos
-- Diseñar flujos de información confiables
-- Construir sistemas simples pero robustos
-- Analizar información para toma de decisiones
-- Servir de puente entre planta, negocio y tecnología
+============================================
 
-No se busca:
-- Ser desarrollador tradicional
-- Acumular frameworks
-- Optimizar prematuramente
+ARQUITECTURA GENERAL DEL SISTEMA
 
--------------------------------------------------------
-5. PROYECTO FORMATIVO CENTRAL
--------------------------------------------------------
+El sistema está compuesto por tres capas claramente separadas:
 
-Nombre:
-Proyecto Macro – Sistema de Paros de Células de Esmaltado
+1. Captura (Frontend)
+2. Persistencia (Backend mínimo)
+3. Análisis (Scripts de lectura y métricas)
 
-Propósito:
-Usar un problema real (paros de producción) como vehículo para aprender a:
+Cada capa cumple una sola función.
+No se mezclan responsabilidades.
 
-- Capturar eventos
-- Persistir información
-- Analizar datos
-- Tomar decisiones técnicas con criterio industrial
+---
 
-Este proyecto:
-- NO busca un producto final
-- NO busca automatización total
-- SÍ busca formación profunda y transferible
+1. CAPA DE CAPTURA – HTML
 
--------------------------------------------------------
-6. DEFINICIÓN DEL EVENTO CRÍTICO
--------------------------------------------------------
+Archivo principal:
 
-Evento central:
-PARO DE CÉLULA DE ESMALTADO
+* index.html
 
-El paro se entiende como:
-- Evento del sistema
-- No solo una detención física
-- Unidad mínima de información relevante
+Función:
 
--------------------------------------------------------
-7. ESTRUCTURA ESTÁNDAR DEL EVENTO (CONGELADA)
--------------------------------------------------------
+* Mostrar formulario a operarios
+* Guiar selección correcta (célula, tipo, causa)
+* Evitar errores humanos básicos
+* Enviar información al backend
 
-Campos definitivos del evento:
+Características clave:
 
-- celula
-- tipo_evento (operativo / técnico)
-- causa
-- duracion_minutos
-- estado
+* No depende de base de datos
+* Funciona en navegador (PC o celular)
+* Usa validaciones simples
 
-Decisiones conscientes:
-- No se registran observaciones en el sistema
-- La conversación humana complementa el dato
-- El estado es definido por el sistema
-- Esta estructura se congela por repetición y uso real
+Decisión importante:
 
--------------------------------------------------------
-8. ARQUITECTURA GENERAL DEL SISTEMA
--------------------------------------------------------
+* El formulario NO escribe directamente en paros.json
+* Primero escribe en un archivo intermedio
 
-El sistema se divide en 3 grandes bloques:
+---
 
-A. Captura del evento
-B. Persistencia segura
-C. Explotación del dato
+2. CAPA DE PERSISTENCIA – BACKEND MÍNIMO
 
-Principio rector:
-- Escribir una vez
-- Leer muchas veces
-- Nunca mezclar responsabilidades
+Archivo principal:
 
--------------------------------------------------------
-9. BLOQUE A – CAPTURA DEL EVENTO (CERRADO)
--------------------------------------------------------
+* app.py (Flask)
 
-Objetivo:
-Garantizar que el evento capturado sea válido antes de existir como dato.
+Función:
 
-Herramienta:
-- index.html (HTML + JavaScript mínimo)
+* Recibir el POST del formulario
+* Guardar el evento capturado
 
-Funciones del bloque A:
-- Interfaz para el operario
-- Validación visual y lógica
-- Prevención de errores humanos
-- Generación de un evento coherente
+Archivo generado:
 
-Decisiones clave:
-- Listas de causas filtradas por célula
-- Células 1–2–3 comparten causas
-- Célula 4 tiene lista independiente
-- Inicialización correcta desde carga
-- Botón de envío controlado
-- Mensaje guía cuando falta información
+* paros_formulario.json
 
-Resultado:
-- El operario solo puede registrar eventos válidos
-- El sistema no recibe basura
-- La estructura del evento se respeta desde origen
+Este archivo representa:
 
--------------------------------------------------------
-10. BLOQUE B – PERSISTENCIA DEL EVENTO (CERRADO)
--------------------------------------------------------
+* El evento tal como fue ingresado
+* Una “foto” del formulario
 
-Objetivo:
-Convertir un evento frágil en información histórica confiable.
+Luego entra en juego:
 
-Concepto clave:
-Separar evento transitorio de histórico real.
+* agregar_paro.py
 
-Archivos involucrados:
+Función:
 
-1) paros_formulario.json
-- Representa UN evento
-- Es transitorio
-- Puede no existir
-- No es histórico
+* Leer paros_formulario.json
+* Normalizar el evento
+* Agregarlo al histórico
 
-2) agregar_paro.py
-- Puente entre captura e histórico
-- Da identidad al evento (ID + timestamp)
-- Tolera estados inconsistentes
-- Nunca borra histórico
-- Protege la estructura del log
+Archivo histórico:
 
-3) paros.json
-- Histórico real del sistema
-- Fuente de verdad
-- Crece en el tiempo
-- Base para análisis y decisiones
+* paros.json
 
-Decisiones clave:
-- El sistema no se rompe si falta la entrada
-- Se permite evento de sistema como fallback
-- Se prioriza robustez sobre rigidez
-- Se separa escritura de lectura
+Este archivo es:
+
+* La fuente de verdad del sistema
+* El histórico acumulado
+
+---
+
+3. CAPA DE ANÁLISIS – LECTURA Y MÉTRICAS
+
+Archivo principal:
+
+* leer_paros.py
+
+Función:
+
+* Leer paros.json
+* Calcular métricas
+* Generar reportes
+
+Archivos generados (salidas):
+
+* resumen_por_causa.csv
+* resumen_tiempo_por_causa.csv
+* resumen_frecuencia_por_causa.csv
+
+Estos archivos:
+
+* NO son sistema
+* Son resultados
+* Se pueden borrar y regenerar
+
+============================================
+
+FLUJO COMPLETO DE INFORMACIÓN (LÍNEA DE VIDA)
+
+1. Operario abre index.html
+2. Completa formulario
+3. Presiona “Registrar Paro”
+4. HTML envía POST a Flask
+5. Flask guarda evento en paros_formulario.json
+6. agregar_paro.py procesa y agrega a paros.json
+7. leer_paros.py analiza paros.json
+8. Se generan métricas y reportes
+
+Este flujo es LINEAL, CLARO y TRAZABLE.
+
+============================================
+
+DECISIONES IMPORTANTES TOMADAS
+
+1. USO DE ARCHIVO INTERMEDIO
+
+Se decidió usar paros_formulario.json para:
+
+* Separar captura de histórico
+* Facilitar debugging
+* Evitar corrupción del histórico
+
+2. SOLUCIÓN ROBUSTA PARA LA CAUSA
+
+Problema detectado:
+
+* Dos selects dinámicos con el mismo name causaban errores
+
+Solución adoptada:
+
+* Un único input hidden (causa_final)
+* Los selects visibles NO se envían
+* JavaScript copia la causa seleccionada
 
 Resultado:
-- Persistencia segura
-- Eventos identificables
-- Sistema tolerante al error
-- Comprensión clara del flujo de datos
 
--------------------------------------------------------
-11. BLOQUE C – EXPLOTACIÓN DEL DATO (CERRADO)
--------------------------------------------------------
+* Cero ambigüedad
+* Envíos consistentes
+* Sistema estable
 
-Objetivo:
-Responder preguntas reales de operación usando el histórico.
+3. EJECUCIÓN DESDE CARPETA RAÍZ
 
-Herramienta:
-- leer_paros.py (solo lectura)
+Se detectó un error crítico:
 
-Regla:
-- En C no se escriben datos
-- Solo se interpreta lo existente
+* Ejecutar scripts desde C:\projects generaba lecturas falsas
 
-Métricas implementadas:
+Decisión:
 
-C1. Tiempo total detenido
-- Responde: ¿cuánto tiempo se perdió?
+* El sistema SOLO se ejecuta desde:
+  C:\projects\formacion-tech-hibrida
 
-C2. Tiempo detenido por célula
-- Responde: ¿dónde se concentra el impacto productivo?
+Esto define el CONTEXTO del sistema.
 
-C3. Tiempo detenido por causa
-- Responde: ¿qué causas generan más pérdida de tiempo?
+============================================
 
-C4. Ranking de causas por tiempo
-- Prioriza por impacto productivo
+ESTRUCTURA FINAL DEL PROYECTO
 
-C6. Frecuencia de eventos (no por tiempo)
-- Número de paros por causa
-- Número de paros por célula
+projects/
+└── formacion-tech-hibrida/
+├── app.py
+├── index.html
+├── agregar_paro.py
+├── leer_paros.py
+├── paros.json
+├── paros_formulario.json
+├── reportes/
+│   ├── resumen_por_causa.csv
+│   ├── resumen_tiempo_por_causa.csv
+│   └── resumen_frecuencia_por_causa.csv
+└── repositorio/docs/
+├── documentos de contexto
 
-Justificación industrial:
-- Paros largos ≠ paros costosos
-- Alta frecuencia implica:
-  - desgaste
-  - inventario
-  - costo oculto
-  - repetición de intervención
+============================================
 
-Resultado:
-- Visión dual: impacto por tiempo vs impacto por recurrencia
-- Base sólida para decisiones de mantenimiento, rediseño o CAPEX
+ACCESO DESDE CELULARES (PILOTO)
 
--------------------------------------------------------
-12. LÍNEA DE VIDA DEL SISTEMA
--------------------------------------------------------
+Configuración actual:
 
-Flujo conceptual completo:
+* Flask corre en un PC local
+* Accesible por IP local (192.168.x.x)
 
-index.html
-→ captura del evento (interfaz)
+Condiciones:
 
-paros_formulario.json
-→ evento transitorio
+* PC y celular deben estar en la MISMA red Wi-Fi
+* NO funciona con datos móviles
 
-agregar_paro.py
-→ persistencia segura
+Esto es:
 
-paros.json
-→ histórico real
+* Correcto
+* Seguro
+* Adecuado para piloto
 
-leer_paros.py
-→ análisis y métricas
+El acceso por datos móviles se considera FUTURA EVOLUCIÓN.
 
--------------------------------------------------------
-13. APRENDIZAJES CLAVE DEL PROCESO
--------------------------------------------------------
+============================================
 
-- Separación de responsabilidades
-- Importancia del estado real del sistema
-- Diferencia entre ruta del script y directorio de ejecución
-- Diagnóstico basado en evidencia
-- No avanzar sin comprender
-- Diseñar para humanos y para fallos
+MÉTRICAS DISPONIBLES
 
--------------------------------------------------------
-14. ESTADO ACTUAL DEL PROCESO
--------------------------------------------------------
+1. Tiempo total detenido por causa
+2. Número de eventos por causa
+3. Número de eventos por célula
 
-- A: cerrado y comprendido
-- B: cerrado y comprendido
-- C: cerrado y validado
-- Sistema funcional de extremo a extremo
-- Repositorio sincronizado
-- Commits ejecutados conscientemente
-- Documentación alineada con la realidad
+Estas métricas permiten:
 
--------------------------------------------------------
-15. NOTA DE CONTINUIDAD
--------------------------------------------------------
+* Identificar fallos largos vs fallos repetitivos
+* Priorizar inversión
+* Detectar desgaste operativo
 
-A partir de este punto, cualquier avance es expansión:
-- Más métricas
-- Exportación de datos
-- Automatización real
-- Integración con backend web
-- Visualización externa
+============================================
 
-No se corrige hacia atrás.
-No se reexplica.
-Se construye sobre esta base.
+REINICIO Y GESTIÓN DEL HISTÓRICO
 
-FIN DEL DOCUMENTO v1.9
+Reglas:
+
+* paros.json NO se borra a lo bruto
+* Se vacía o se archiva
+
+Reinicio controlado:
+{
+"log_paros_celula": []
+}
+
+Archivado recomendado:
+
+* paros_2026_enero.json
+
+============================================
+
+ESTADO ACTUAL DEL PROYECTO
+
+* Sistema funcionando end-to-end
+* Datos reales capturados
+* Métricas generadas correctamente
+* Estructura limpia
+* Contexto claro
+
+El proyecto está LISTO PARA PILOTO OPERATIVO.
+
+============================================
+
+CIERRE
+
+Este documento existe para evitar:
+
+* volver a cometer los mismos errores
+* perder contexto
+* rehacer trabajo ya validado
+
+El sistema no es complejo.
+Es CLARO, CONTROLADO y ENTENDIDO.
+
+A partir de aquí, cualquier evolución es una decisión, no una urgencia.
