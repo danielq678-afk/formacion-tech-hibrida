@@ -1,55 +1,237 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Proyecto Macro – Célula 4 | Formación Tech Híbrida</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Paro – Célula de Esmaltado</title>
+</head>
 
-  <body>
-    <h1>Registro de paro de célula</h1>
+<body>
 
-    <section>
-      <h2>Log de paros de la célula</h2>
+<h1>Registro de Paro</h1>
 
-      <section>
-        <h3>Evento de paro</h3>
+<form method="post" action="/registrar_paro">
 
-        <h2>Tipo de evento</h2>
-        <p>Paro operativo</p>
+    <!-- 1. Operario -->
+    <fieldset>
+        <legend><strong>Operario</strong></legend>
+        <label>Nombre del operario:</label><br>
+        <select id="operario" name="operario" required>
+            <option value="">Seleccione</option>
+            <option>German Muñoz</option>
+            <option>Carlos Rua</option>
+            <option>Dairon Vanegas</option>
+            <option>Jonatan Estrada</option>
+            <option>Felipe Cadavid</option>
+            <option>Camilo Niño</option>
+            <option>Faber Mesa</option>
+            <option>Gustavo Moreno</option>
+            <option>Juan Manuel Hernández</option>
+        </select>
+    </fieldset>
 
-       <h2>Causa</h2>
-       <p>Pieza mal posicionada detectada por cámara</p>
+    <br>
 
-        <h2>Duración</h2>
-        <p>12 minutos</p>
+    <!-- 2. Célula -->
+    <fieldset>
+        <legend><strong>Célula</strong></legend>
+        <label>Número de célula:</label><br>
+        <select id="celula" name="celula" required>
+            <option value="">Seleccione</option>
+            <option value="1">Célula 1</option>
+            <option value="2">Célula 2</option>
+            <option value="3">Célula 3</option>
+            <option value="4">Célula 4</option>
+        </select>
+    </fieldset>
 
-        <h2>Estado</h2>
-        <p>Resuelto</p>
+    <br>
 
-        <h2>Observación</h2>
-        <p>Se reinició el sistema y se normalizó la operación</p>
-      </section>
+    <!-- 3. Tipo de Paro -->
+    <fieldset>
+        <legend><strong>Tipo de Paro</strong></legend>
+        <input type="radio" name="tipo_evento" value="operativo" required> Operativo<br>
+        <input type="radio" name="tipo_evento" value="tecnico"> Técnico
+    </fieldset>
 
-      <section>
+    <br>
 
-      <h3>Evento de paro</h3>
+    <!-- 4. Causa -->
+    <fieldset>
+        <legend><strong>Causa del Paro</strong></legend>
 
-      <h2>Tipo de evento</h2>
-      <p>Paro operativo</p>
+        <!-- Causas células 1-2-3 -->
+        <select id="causa_123" style="display:none;">
+            <option value="">Seleccione</option>
 
-      <h2>Causa</h2>
-      <p>Esmalte acumulado en las puertas</p>
+            <!-- Operativo -->
+            <option>Descarga</option>
+            <option>Carga</option>
+            <option>Falta producción</option>
 
-      <h2>Duración</h2>
-      <p>15 minutos</p>
+            <!-- Técnico -->
+            <option>Conveyor entrada</option>
+            <option>Sensores</option>
+            <option>Escuadra</option>
+            <option>Elevador 1</option>
+            <option>Elevador 2</option>
+            <option>Cadenas</option>
+            <option>Conveyor salida</option>
+            <option>Sensores conveyor de salida</option>
+            <option>Motor de extracción</option>
+            <option>Centralina</option>
+            <option>Correas</option>
+            <option>Esponjas</option>
+            <option>Cabina</option>
+            <option>Torretas</option>
+            <option>Giostra</option>
+            <option>Puertas cabina</option>
+            <option>Sifón</option>
+            <option>Sensor llenado</option>
+            <option>Sensor presencia</option>
+            <option>Cilindros de llenado</option>
+            <option>Sistema llenado</option>
+            <option>Bomba</option>
+            <option>Tamiz</option>
+            <option>Válvula fisher llenado</option>
+            <option>Válvula fisher sifón</option>
+            <option>GDS</option>
+            <option>Válvulas de GDS</option>
+            <option>Sensores tanque</option>
+            <option>Robot manipulador</option>
+            <option>Pinzas</option>
+            <option>Cilindros de pinzas</option>
+            <option>Perfiles</option>
+            <option>Ángulos</option>
+            <option>Robot esmaltador</option>
+            <option>Pistola</option>
+            <option>Otro</option>
+        </select>
 
-      <h2>Estado</h2>
-      <p>Resuelto</p>
+        <!-- Causas célula 4 -->
+        <select id="causa_4" style="display:none;">
+            <option value="">Seleccione</option>
 
-      <h2>Observación</h2>
-      <p>Se limpian las puertas por los operadores y se reinicia</p>
-      </section>
+            <!-- Operativo -->
+            <option>Descarga</option>
+            <option>Carga</option>
+            <option>Falta producción</option>
 
-  </section>
-  </body>
+            <!-- Técnico -->
+            <option>Línea A</option>
+            <option>Sensores Línea A</option>
+            <option>Elevadores Línea A</option>
+            <option>Servo Línea A</option>
+            <option>Línea B</option>
+            <option>Sensores Línea B</option>
+            <option>Servo Línea B</option>
+            <option>Elevadores Línea B</option>
+            <option>Torreta 1</option>
+            <option>Limpiador Torreta 1</option>
+            <option>Torreta 2</option>
+            <option>Limpiador Torreta 2</option>
+            <option>Línea C</option>
+            <option>Sensores Línea C</option>
+            <option>Elevadores Línea C</option>
+            <option>Motor de extracción</option>
+            <option>Sifón</option>
+            <option>Sensor llenado sifón</option>
+            <option>Sensor presencia sifón</option>
+            <option>Cilindros sifón</option>
+            <option>Sistema llenado</option>
+            <option>Bomba</option>
+            <option>Tamiz</option>
+            <option>Válvulas fisher sifón</option>
+            <option>Válvulas fisher GDS</option>
+            <option>GDS</option>
+            <option>Pistola</option>
+            <option>Válvulas PV de GDS</option>
+            <option>Sensores tanque</option>
+            <option>Otro</option>
+        </select>
+
+        <!-- Causa FINAL enviada -->
+        <input type="hidden" id="causa_final" name="causa">
+    </fieldset>
+
+    <br>
+
+    <!-- 5. Duración -->
+    <fieldset>
+        <legend><strong>Duración</strong></legend>
+        <label>Duración del paro (minutos):</label><br>
+        <input type="number" name="duracion_minutos" min="1" required>
+    </fieldset>
+
+    <br>
+
+    <!-- Envío -->
+    <input type="hidden" name="estado" value="cerrado">
+    <button type="submit" id="btnRegistrar" disabled>Registrar Paro</button>
+
+    <p id="mensajeAyuda" style="color:red;">
+        Seleccione célula y causa para continuar.
+    </p>
+
+</form>
+
+<script>
+const celula = document.getElementById("celula");
+const causa123 = document.getElementById("causa_123");
+const causa4 = document.getElementById("causa_4");
+const causaFinal = document.getElementById("causa_final");
+const boton = document.getElementById("btnRegistrar");
+const mensaje = document.getElementById("mensajeAyuda");
+
+function resetFormulario() {
+    causa123.style.display = "none";
+    causa4.style.display = "none";
+    causa123.value = "";
+    causa4.value = "";
+    causaFinal.value = "";
+    boton.disabled = true;
+    mensaje.style.display = "block";
+}
+
+function actualizarFormulario() {
+    resetFormulario();
+
+    if (celula.value === "4") {
+        causa4.style.display = "block";
+    } else if (celula.value === "1" || celula.value === "2" || celula.value === "3") {
+        causa123.style.display = "block";
+    }
+}
+
+function validarFormulario() {
+    let causaSeleccionada = "";
+
+    if (causa123.style.display === "block") {
+        causaSeleccionada = causa123.value;
+    }
+    if (causa4.style.display === "block") {
+        causaSeleccionada = causa4.value;
+    }
+
+    if (celula.value !== "" && causaSeleccionada !== "") {
+        causaFinal.value = causaSeleccionada;
+        boton.disabled = false;
+        mensaje.style.display = "none";
+    } else {
+        boton.disabled = true;
+        mensaje.style.display = "block";
+    }
+}
+
+celula.addEventListener("change", () => {
+    actualizarFormulario();
+    validarFormulario();
+});
+
+causa123.addEventListener("change", validarFormulario);
+causa4.addEventListener("change", validarFormulario);
+
+window.onload = resetFormulario;
+</script>
+
+</body>
 </html>

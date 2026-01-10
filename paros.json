@@ -1,49 +1,103 @@
 {
-  "log_paros_celula": [
-    {
-      "celula": 1,
-      "tipo_evento": "operativo",
-      "causa": "Descarga",
-      "duracion_minutos": 8,
-      "estado": "cerrado",
-      "id_evento": "evt-001",
-      "timestamp": "2026-01-08T06:10:00"
-    },
-    {
-      "celula": 2,
-      "tipo_evento": "tecnico",
-      "causa": "Sensor llenado",
-      "duracion_minutos": 15,
-      "estado": "cerrado",
-      "id_evento": "evt-002",
-      "timestamp": "2026-01-08T07:25:00"
-    },
-    {
-      "celula": 3,
-      "tipo_evento": "operativo",
-      "causa": "Falta producción",
-      "duracion_minutos": 12,
-      "estado": "cerrado",
-      "id_evento": "evt-003",
-      "timestamp": "2026-01-08T09:40:00"
-    },
-    {
-      "celula": 4,
-      "tipo_evento": "tecnico",
-      "causa": "Línea A",
-      "duracion_minutos": 20,
-      "estado": "cerrado",
-      "id_evento": "evt-004",
-      "timestamp": "2026-01-08T11:05:00"
-    },
-    {
-      "celula": 2,
-      "tipo_evento": "tecnico",
-      "causa": "Bomba",
-      "duracion_minutos": 10,
-      "estado": "cerrado",
-      "id_evento": "evt-005",
-      "timestamp": "2026-01-08T14:30:00"
-    }
-  ]
+    "log_paros_celula": [
+        {
+            "celula": 1,
+            "tipo_evento": "operativo",
+            "causa": "Descarga",
+            "duracion_minutos": 8,
+            "estado": "cerrado",
+            "id_evento": "evt-001",
+            "timestamp": "2026-01-08T06:10:00"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Sensor llenado",
+            "duracion_minutos": 15,
+            "estado": "cerrado",
+            "id_evento": "evt-002",
+            "timestamp": "2026-01-08T07:25:00"
+        },
+        {
+            "celula": 3,
+            "tipo_evento": "operativo",
+            "causa": "Falta producción",
+            "duracion_minutos": 12,
+            "estado": "cerrado",
+            "id_evento": "evt-003",
+            "timestamp": "2026-01-08T09:40:00"
+        },
+        {
+            "celula": 4,
+            "tipo_evento": "tecnico",
+            "causa": "Línea A",
+            "duracion_minutos": 20,
+            "estado": "cerrado",
+            "id_evento": "evt-004",
+            "timestamp": "2026-01-08T11:05:00"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Bomba",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "evt-005",
+            "timestamp": "2026-01-08T14:30:00"
+        },
+        {
+            "celula": 4,
+            "tipo_evento": "tecnico",
+            "causa": "",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "8a3dfe09-91f3-4f1a-bd1a-7785263cc171",
+            "timestamp": "2026-01-09T20:01:22"
+        },
+        {
+            "celula": 4,
+            "tipo_evento": "tecnico",
+            "causa": "",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "80d043af-5462-4153-a5ba-545c4c4f5f41",
+            "timestamp": "2026-01-09T20:18:41"
+        },
+        {
+            "celula": 4,
+            "tipo_evento": "tecnico",
+            "causa": "PRUEBA_BACKEND",
+            "duracion_minutos": 5,
+            "estado": "cerrado",
+            "id_evento": "619b9f96-f2aa-4997-87df-b59b0aaa6b94",
+            "timestamp": "2026-01-09T20:26:42"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Sensor llenado",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "43ac16b4-a65e-406a-ba53-960687b20e51",
+            "timestamp": "2026-01-09T20:33:07"
+        },
+        {
+            "celula": 3,
+            "tipo_evento": "operativo",
+            "causa": "Descarga",
+            "duracion_minutos": 30,
+            "estado": "cerrado",
+            "id_evento": "e4718f2a-dd3f-4d1d-bd40-b5fc8719202c",
+            "timestamp": "2026-01-09T20:33:26"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Giostra",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "53b78803-1288-420f-a423-5c219a383e7f",
+            "timestamp": "2026-01-09T20:36:57"
+        }
+    ]
 }

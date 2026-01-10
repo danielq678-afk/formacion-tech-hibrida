@@ -3,8 +3,8 @@
     {
       "celula": 2,
       "tipo_evento": "tecnico",
-      "causa": "Sensor llenado",
-      "duracion_minutos": 15,
+      "causa": "Giostra",
+      "duracion_minutos": 10,
       "estado": "cerrado"
     }
   ]
