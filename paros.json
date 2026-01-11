@@ -98,6 +98,42 @@
             "estado": "cerrado",
             "id_evento": "53b78803-1288-420f-a423-5c219a383e7f",
             "timestamp": "2026-01-09T20:36:57"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Giostra",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "361ee0d3-c299-471a-9d87-1ec6b91e7ee5",
+            "timestamp": "2026-01-11T13:07:52"
+        },
+        {
+            "celula": 2,
+            "tipo_evento": "tecnico",
+            "causa": "Escuadra",
+            "duracion_minutos": 50,
+            "estado": "cerrado",
+            "id_evento": "ee9ad477-cc75-4509-be80-b5968bdf682b",
+            "timestamp": "2026-01-11T13:11:46"
+        },
+        {
+            "celula": 3,
+            "tipo_evento": "tecnico",
+            "causa": "Escuadra",
+            "duracion_minutos": 25,
+            "estado": "cerrado",
+            "id_evento": "513efae3-c76c-435c-a5d9-e5e8100e937f",
+            "timestamp": "2026-01-11T13:12:10"
+        },
+        {
+            "celula": 1,
+            "tipo_evento": "tecnico",
+            "causa": "Esponjas",
+            "duracion_minutos": 65,
+            "estado": "cerrado",
+            "id_evento": "66fc652c-f583-4234-9a8d-cf87a475faa9",
+            "timestamp": "2026-01-11T13:12:31"
         }
     ]
 }

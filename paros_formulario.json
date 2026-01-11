@@ -1,10 +1,10 @@
 {
   "log_paros_celula": [
     {
-      "celula": 2,
+      "celula": 1,
       "tipo_evento": "tecnico",
-      "causa": "Giostra",
-      "duracion_minutos": 10,
+      "causa": "Esponjas",
+      "duracion_minutos": 65,
       "estado": "cerrado"
     }
   ]

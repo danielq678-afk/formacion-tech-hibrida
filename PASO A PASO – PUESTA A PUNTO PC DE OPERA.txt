@@ -1,0 +1,224 @@
+PASO A PASO – PUESTA A PUNTO PC DE OPERACIÓN
+FORMACIÓN TECH HÍBRIDA
+
+============================================
+
+OBJETIVO DEL DOCUMENTO
+
+Este documento describe de forma clara, secuencial y ejecutable el procedimiento para poner en operación el PC de las células (PC 3), encargado de la captura de paros, almacenamiento de datos y generación de métricas.
+
+El objetivo es que cualquier persona con conocimientos básicos de Windows pueda dejar el sistema funcionando sin improvisación ni dependencia del desarrollador.
+
+============================================
+
+CONTEXTO DEL SISTEMA
+
+El sistema de formación tech híbrida se compone de:
+
+* Un PC de operación (células)
+* Un sistema de captura vía HTML
+* Un backend mínimo en Python (Flask)
+* Archivos JSON como fuente de datos
+* Scripts de análisis y generación de métricas
+
+Este PC:
+
+* Opera 24/7
+* No toca PLCs
+* No expone servicios a internet
+* Se conecta únicamente a red Wi-Fi industrial (RF24 / Control)
+
+============================================
+
+1. PREPARACIÓN DEL PC DE OPERACIÓN
+
+1.1 Sistema operativo
+
+* Windows operativo y actualizado
+* Usuario definido (no temporal)
+* Fecha y hora correctas
+* Antivirus activo
+
+1.2 Red
+
+* Conectado a red Wi-Fi industrial RF24 / Control
+* Sin acceso a red PLC
+* Con salida controlada a internet (SMTP)
+
+No se utiliza Wi-Fi invitado ni datos móviles.
+
+============================================
+
+2. CREACIÓN DE LA ESTRUCTURA DEL PROYECTO
+
+En el disco local (C:), crear la siguiente estructura:
+
+C:\dev
+└── formacion-tech-hibrida\
+
+El nombre de la carpeta es importante y no debe cambiarse.
+
+============================================
+
+3. ARCHIVOS QUE DEBEN EXISTIR EN EL PC DE OPERACIÓN
+
+Copiar únicamente el núcleo operativo del sistema:
+
+* app.py
+* index.html
+* agregar_paro.py
+* leer_paros.py
+* paros.json
+* paros_formulario.json
+* carpeta reportes/
+* carpeta static/ (si existe)
+
+No copiar:
+
+* documentos base
+* presentaciones
+* carpetas de repositorio
+* archivos de prueba
+
+Este PC es operativo, no académico.
+
+============================================
+
+4. INSTALACIÓN DE PYTHON
+
+4.1 Instalar Python versión 3.10 o superior
+
+Durante la instalación:
+
+* Marcar la opción “Add Python to PATH”
+
+4.2 Verificación
+
+Abrir CMD y ejecutar:
+
+python --version
+
+Debe devolver la versión instalada.
+
+============================================
+
+5. INSTALACIÓN DE DEPENDENCIAS
+
+Desde la carpeta del proyecto:
+
+cd C:\dev\formacion-tech-hibrida
+
+Ejecutar:
+
+python -m pip install flask
+
+Esperar confirmación de instalación.
+
+============================================
+
+6. PRUEBA DEL BACKEND
+
+Desde la misma carpeta del proyecto ejecutar:
+
+python app.py
+
+Resultado esperado:
+
+Running on [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+Mantener esta ventana abierta durante la prueba.
+
+============================================
+
+7. PRUEBA DEL FRONTEND
+
+Abrir un navegador en el PC de operación y acceder a:
+
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+Validar:
+
+* El formulario carga correctamente
+* Se puede seleccionar célula
+* Aparecen las causas correspondientes
+* El botón “Registrar Paro” se habilita correctamente
+* El formulario se envía sin errores
+
+============================================
+
+8. PRUEBA DE CAPTURA DE DATOS
+
+Después de registrar un paro desde el formulario:
+
+1. Abrir el archivo paros_formulario.json
+
+   * Debe contener el evento registrado
+
+2. En otra terminal ejecutar:
+
+python agregar_paro.py
+
+3. Abrir el archivo paros.json
+
+   * El evento debe aparecer agregado al histórico
+
+============================================
+
+9. PRUEBA DE MÉTRICAS
+
+Desde la carpeta del proyecto ejecutar:
+
+python leer_paros.py
+
+Validar:
+
+* Número correcto de paros
+* Tiempos coherentes
+* Métricas por célula y causa
+* Generación de archivos CSV en la carpeta reportes/
+
+============================================
+
+10. CHECKLIST FINAL DE VALIDACIÓN
+
+Antes de declarar el PC listo para operación:
+
+* Flask arranca sin errores
+* El formulario HTML funciona
+* Se registran paros correctamente
+* paros.json se actualiza
+* Se generan métricas
+* Todos los scripts se ejecutan desde:
+  C:\dev\formacion-tech-hibrida
+
+Si todos los puntos están correctos, el PC queda habilitado para piloto.
+
+============================================
+
+11. REGLAS OPERATIVAS IMPORTANTES
+
+* No editar código en el PC de operación
+* No mover la carpeta del proyecto
+* No ejecutar scripts desde otra ruta
+* Cambios y mejoras se realizan únicamente desde el PC personal
+
+El PC de operación debe mantenerse estable.
+
+============================================
+
+12. ESTADO FINAL DEL PC DE OPERACIÓN
+
+El PC queda configurado como:
+
+* Servidor local del formulario
+* Recolector de datos de paros
+* Generador de métricas
+* Futuro emisor de reportes automáticos
+
+============================================
+
+CIERRE
+
+Este documento permite repetir el proceso sin depender de memoria ni improvisación.
+
+El sistema está listo para salir a operación de planta de forma controlada, segura y comprensible.
