@@ -8,7 +8,20 @@
 └───────────┬────────────┘
             │
             │  Evento capturado
-            │  (datos en memoria / simulación)
+            │  (datos enviados al backend)
+            ▼
+┌────────────────────────┐
+│        app.py           │
+│   (Backend mínimo)      │
+│                         │
+│ - Recibe POST del HTML  │
+│ - No guarda histórico   │
+│ - Actúa como puente     │
+│ - No hace análisis      │
+└───────────┬────────────┘
+            │
+            │  Evento recibido
+            │
             ▼
 ┌────────────────────────┐
 │  paros_formulario.json │
@@ -57,5 +70,46 @@
 │ - Solo lee             │
 │ - Cuenta eventos       │
 │ - Resume información   │
+│ - Genera CSV           │
 │ - No modifica datos    │
+└───────────┬────────────┘
+            │
+            │  Reportes generados
+            │
+            ▼
+┌────────────────────────┐
+│    reportes/*.csv      │
+│   (Salidas del sistema)│
+│                        │
+│ - Datos consolidados   │
+│ - Reproducibles        │
+│ - No son fuente verdad │
+│ - Se pueden borrar     │
+└───────────┬────────────┘
+            │
+            │  Automatización diaria
+            │
+            ▼
+┌────────────────────────┐
+│  enviar_reportes.py    │
+│ (Automatización salida)│
+│                        │
+│ - Ejecuta leer_paros   │
+│ - Adjunta CSV          │
+│ - Envía por correo     │
+│ - No toca históricos   │
+│ - Corre sin usuarios   │
+└───────────┬────────────┘
+            │
+            │  Distribución
+            │
+            ▼
+┌────────────────────────┐
+│   Correo / Oficina     │
+│ (Consumo de métricas)  │
+│                        │
+│ - Análisis             │
+│ - Decisiones           │
+│ - Seguimiento          │
+│ - Sin tocar sistema    │
 └────────────────────────┘

@@ -134,6 +134,15 @@
             "estado": "cerrado",
             "id_evento": "66fc652c-f583-4234-9a8d-cf87a475faa9",
             "timestamp": "2026-01-11T13:12:31"
+        },
+        {
+            "celula": 3,
+            "tipo_evento": "tecnico",
+            "causa": "Cadenas",
+            "duracion_minutos": 10,
+            "estado": "cerrado",
+            "id_evento": "9e4ffd3f-d895-4802-b9b2-1a4da6aee4dd",
+            "timestamp": "2026-01-12T10:13:08"
         }
     ]
 }
