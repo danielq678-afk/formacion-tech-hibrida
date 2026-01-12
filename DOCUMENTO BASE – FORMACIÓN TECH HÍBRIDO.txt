@@ -1,0 +1,225 @@
+DOCUMENTO BASE – FORMACIÓN TECH HÍBRIDO
+VERSIÓN 2.1
+
+============================================
+
+OBJETIVO DEL DOCUMENTO
+
+Este documento consolida el estado ACTUAL del proyecto Formacion Tech Híbrido, incorporando:
+
+* La arquitectura definitiva del sistema
+* La línea de vida completa de la información
+* El estado real del piloto
+* El punto exacto donde se encuentra el bloqueo externo (IT)
+* Las acciones paralelas que se realizarán mientras se resuelve dicho bloqueo
+
+Este documento permite:
+
+* Retomar el proyecto en un nuevo chat o entorno
+* Explicar el sistema a IT, mantenimiento o gestión
+* Continuar el desarrollo sin pérdida de contexto
+
+============================================
+
+CONTEXTO GENERAL DEL PROYECTO
+
+El proyecto Formacion Tech Híbrido nace con un objetivo operativo concreto:
+
+Diseñar e implementar un sistema simple y robusto para la captura de paros de producción por célula, causa y duración, con el fin de generar métricas confiables que soporten decisiones de mantenimiento y mejora continua.
+
+Principios rectores:
+
+* No alterar la operación real de planta
+* No interferir con mantenimiento ni PLCs
+* Priorizar claridad y robustez sobre complejidad
+* Operar como piloto antes de cualquier escalamiento
+
+============================================
+
+ARQUITECTURA GENERAL DEL SISTEMA
+
+El sistema está dividido en capas claramente separadas:
+
+1. Captura (Frontend)
+2. Backend mínimo (puente de datos)
+3. Persistencia segura (histórico)
+4. Análisis y métricas
+5. Automatización de salida
+
+Cada capa tiene una única responsabilidad y no invade a las demás.
+
+============================================
+
+LÍNEA DE VIDA COMPLETA DE LA INFORMACIÓN
+
+┌────────────────────────┐
+│        index.html       │
+│  (Interfaz de captura)  │
+│                         │
+│ - Operario ingresa datos│
+│ - Validaciones visuales │
+│ - No persiste datos     │
+└───────────┬────────────┘
+│
+│ Evento enviado
+▼
+┌────────────────────────┐
+│        app.py           │
+│   (Backend mínimo)      │
+│                         │
+│ - Recibe POST del HTML  │
+│ - No guarda histórico   │
+│ - Actúa como puente     │
+└───────────┬────────────┘
+│
+│ Evento recibido
+▼
+┌────────────────────────┐
+│  paros_formulario.json │
+│   (Evento transitorio) │
+│                         │
+│ - Contiene UN evento   │
+│ - Representa lo último │
+│ - Puede no existir     │
+│ - No es histórico      │
+└───────────┬────────────┘
+│
+│ Evento validado
+▼
+┌────────────────────────┐
+│     agregar_paro.py    │
+│ (Persistencia segura)  │
+│                         │
+│ - Lee evento de entrada│
+│ - Asigna ID único      │
+│ - Asigna timestamp     │
+│ - Protege el histórico │
+│ - Tolera estados raros │
+└───────────┬────────────┘
+│
+│ Evento permanente
+▼
+┌────────────────────────┐
+│       paros.json       │
+│   (Histórico real)     │
+│                         │
+│ - Todos los eventos    │
+│ - Fuente de verdad     │
+│ - Nunca se borra       │
+└───────────┬────────────┘
+│
+│ Lectura / análisis
+▼
+┌────────────────────────┐
+│     leer_paros.py      │
+│  (Lectura / métricas)  │
+│                         │
+│ - Solo lee             │
+│ - Genera métricas      │
+│ - Produce CSV          │
+└───────────┬────────────┘
+│
+│ Reportes generados
+▼
+┌────────────────────────┐
+│    reportes/*.csv      │
+│   (Salidas del sistema)│
+│                         │
+│ - No son fuente verdad │
+│ - Reproducibles        │
+│ - Eliminables          │
+└───────────┬────────────┘
+│
+│ Automatización
+▼
+┌────────────────────────┐
+│  enviar_reportes.py    │
+│ (Salida automática)    │
+│                         │
+│ - Ejecuta métricas     │
+│ - Adjunta CSV          │
+│ - Envía correo         │
+│ - No modifica datos    │
+└───────────┬────────────┘
+│
+│ Distribución
+▼
+┌────────────────────────┐
+│ Oficina / Análisis     │
+│ (Consumo de datos)     │
+│                         │
+│ - Análisis             │
+│ - Decisiones           │
+│ - Seguimiento          │
+└────────────────────────┘
+
+============================================
+
+ESTADO ACTUAL DEL PROYECTO (V2.1)
+
+* Sistema validado en dos PCs distintos
+* Captura de paros funcional
+* Persistencia robusta
+* Métricas correctas
+* Generación de CSV correcta
+* Script de envío por correo implementado
+
+El único punto pendiente NO es técnico sino externo.
+
+============================================
+
+PUNTO BLOQUEADO ACTUALMENTE
+
+El envío automático de correos depende de la disponibilidad de un servidor SMTP corporativo.
+
+Situación actual:
+
+* La red permite salida a internet
+* El puerto SMTP público (Gmail 587) está bloqueado
+* Es necesario definir SMTP corporativo (Exchange / relay interno)
+
+Acción pendiente:
+
+* Confirmación por parte de IT del servidor SMTP disponible
+* Host, puerto y tipo de autenticación
+
+Este bloqueo no afecta la captura de datos ni las métricas.
+
+============================================
+
+TRABAJO EN PARALELO PLANIFICADO
+
+Mientras se resuelve el punto con IT:
+
+* El piloto de captura está listo para iniciar
+* Se comenzará la captura real de datos
+* Se trabajará en el fortalecimiento del HTML:
+
+  * Estilos visuales
+  * Colores funcionales
+  * Legibilidad
+  * UX industrial
+
+Estos cambios no afectan backend ni datos.
+
+============================================
+
+ESTADO DE PREPARACIÓN PARA PILOTO
+
+El sistema se encuentra en estado:
+
+LISTO PARA INICIAR CAPTURA DE DATOS
+
+Con la automatización de correo como mejora inmediata pendiente.
+
+============================================
+
+CIERRE
+
+Este documento representa el estado más actualizado del proyecto.
+
+El sistema está correctamente diseñado, entendido y documentado.
+
+La captura de datos puede comenzar de forma inmediata mientras se completa la automatización del envío de reportes.
+
+Versión 2.1 – Punto de control estable.
