@@ -1,6 +1,8 @@
 causa,tiempo_total_minutos
-Escuadra,75
+Escuadra,85
 Esponjas,65
+Motor de extracción,60
+Sensores conveyor de salida,50
 Descarga,38
 Sensor llenado,25
 Línea A,20
@@ -9,4 +11,5 @@ Giostra,20
 Falta producción,12
 Bomba,10
 Cadenas,10
+Elevador 2,10
 PRUEBA_BACKEND,5
