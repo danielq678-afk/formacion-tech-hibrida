@@ -1,9 +1,12 @@
 ﻿ranking;causa;tiempo_total_minutos;porcentaje_tiempo;porcentaje_acumulado;prioridad
-1;Elevadores Línea B;50;22.7;22.7;CRÍTICA
-2;Elevadores Línea C;50;22.7;45.4;CRÍTICA
-3;Falta producción;30;13.6;59.0;CRÍTICA
-4;Cabina;30;13.6;72.6;CRÍTICA
-5;Correas;20;9.1;81.7;ALTA
-6;Sensores;15;6.8;88.5;ALTA
-7;Torreta 1;15;6.8;95.3;MEDIA
-8;Puertas cabina;10;4.5;99.8;MEDIA
+1;Elevadores Línea B;50;18.5;18.5;CRÍTICA
+2;Elevadores Línea C;50;18.5;37.0;CRÍTICA
+3;Falta producción;30;11.1;48.1;CRÍTICA
+4;Cabina;30;11.1;59.2;CRÍTICA
+5;Correas;20;7.4;66.6;CRÍTICA
+6;Elevador 2;20;7.4;74.0;CRÍTICA
+7;Sensores;15;5.6;79.6;CRÍTICA
+8;Torreta 1;15;5.6;85.2;ALTA
+9;Válvulas PV de GDS;15;5.6;90.8;ALTA
+10;Sensor llenado;15;5.6;96.4;MEDIA
+11;Puertas cabina;10;3.7;100.1;MEDIA

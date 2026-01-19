@@ -1,5 +1,5 @@
 ﻿celula;cantidad_paros;tiempo_total_minutos;porcentaje_tiempo;prioridad;causa_principal
-4;4;130;59.1;ALTA;Elevadores Línea B
-3;4;60;27.3;MEDIA;Cabina
-1;1;20;9.1;BAJA;Correas
-2;1;10;4.5;BAJA;Puertas cabina
+4;5;145;53.7;ALTA;Elevadores Línea B
+3;5;80;29.6;MEDIA;Cabina
+1;2;35;13.0;BAJA;Correas
+2;1;10;3.7;BAJA;Puertas cabina

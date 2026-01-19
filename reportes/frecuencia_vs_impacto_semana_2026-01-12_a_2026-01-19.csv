@@ -1,9 +1,12 @@
 ﻿causa;cantidad_eventos;tiempo_total_minutos;tiempo_promedio_minutos;porcentaje_tiempo;tipo_problema
-Correas;1;20;20.0;9.1;EVENTO CRÍTICO
-Falta producción;2;30;15.0;13.6;EVENTO CRÍTICO
-Sensores;1;15;15.0;6.8;EVENTO CRÍTICO
-Torreta 1;1;15;15.0;6.8;EVENTO CRÍTICO
-Cabina;2;30;15.0;13.6;EVENTO CRÍTICO
-Elevadores Línea B;1;50;50.0;22.7;EVENTO CRÍTICO
-Elevadores Línea C;1;50;50.0;22.7;EVENTO CRÍTICO
-Puertas cabina;1;10;10.0;4.5;EVENTO CRÍTICO
+Correas;1;20;20.0;7.4;EVENTO CRÍTICO
+Falta producción;2;30;15.0;11.1;EVENTO CRÍTICO
+Sensores;1;15;15.0;5.6;EVENTO CRÍTICO
+Torreta 1;1;15;15.0;5.6;EVENTO CRÍTICO
+Cabina;2;30;15.0;11.1;EVENTO CRÍTICO
+Elevadores Línea B;1;50;50.0;18.5;EVENTO CRÍTICO
+Elevadores Línea C;1;50;50.0;18.5;EVENTO CRÍTICO
+Puertas cabina;1;10;10.0;3.7;EVENTO CRÍTICO
+Elevador 2;1;20;20.0;7.4;EVENTO CRÍTICO
+Válvulas PV de GDS;1;15;15.0;5.6;EVENTO CRÍTICO
+Sensor llenado;1;15;15.0;5.6;EVENTO CRÍTICO

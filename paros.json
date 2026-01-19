@@ -83,6 +83,33 @@
       "estado": "cerrado",
       "id_evento": "b67dd8ef-06c6-4e4f-b73d-ed936f62b0ba",
       "timestamp": "2026-01-19 09:24:50"
+    },
+    {
+      "celula": 3,
+      "tipo_evento": "tecnico",
+      "causa": "Elevador 2",
+      "duracion_minutos": 20,
+      "estado": "cerrado",
+      "id_evento": "6b581628-bd0b-43a1-a2b9-9ce51572697d",
+      "timestamp": "2026-01-19 11:32:47"
+    },
+    {
+      "celula": 4,
+      "tipo_evento": "tecnico",
+      "causa": "Válvulas PV de GDS",
+      "duracion_minutos": 15,
+      "estado": "cerrado",
+      "id_evento": "65a7ceec-42d9-46ac-a1b1-f0152c80c8be",
+      "timestamp": "2026-01-19 11:33:04"
+    },
+    {
+      "celula": 1,
+      "tipo_evento": "tecnico",
+      "causa": "Sensor llenado",
+      "duracion_minutos": 15,
+      "estado": "cerrado",
+      "id_evento": "d49ad3d4-2a6a-47fa-860e-e02773cd2ee5",
+      "timestamp": "2026-01-19 11:33:24"
     }
   ]
 }
