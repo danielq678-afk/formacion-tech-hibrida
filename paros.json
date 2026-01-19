@@ -74,6 +74,15 @@
       "estado": "cerrado",
       "id_evento": "03584047-8c47-4cf2-80fa-bf077cf5907f",
       "timestamp": "2026-01-19 09:07:59"
+    },
+    {
+      "celula": 2,
+      "tipo_evento": "tecnico",
+      "causa": "Puertas cabina",
+      "duracion_minutos": 10,
+      "estado": "cerrado",
+      "id_evento": "b67dd8ef-06c6-4e4f-b73d-ed936f62b0ba",
+      "timestamp": "2026-01-19 09:24:50"
     }
   ]
 }

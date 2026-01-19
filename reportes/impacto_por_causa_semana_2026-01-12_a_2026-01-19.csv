@@ -1,0 +1,9 @@
+﻿ranking;causa;tiempo_total_minutos;porcentaje_tiempo;porcentaje_acumulado;prioridad
+1;Elevadores Línea B;50;22.7;22.7;CRÍTICA
+2;Elevadores Línea C;50;22.7;45.4;CRÍTICA
+3;Falta producción;30;13.6;59.0;CRÍTICA
+4;Cabina;30;13.6;72.6;CRÍTICA
+5;Correas;20;9.1;81.7;ALTA
+6;Sensores;15;6.8;88.5;ALTA
+7;Torreta 1;15;6.8;95.3;MEDIA
+8;Puertas cabina;10;4.5;99.8;MEDIA

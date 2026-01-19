@@ -1,10 +1,10 @@
 {
   "log_paros_celula": [
     {
-      "celula": 4,
+      "celula": 2,
       "tipo_evento": "tecnico",
-      "causa": "Elevadores Línea C",
-      "duracion_minutos": 50,
+      "causa": "Puertas cabina",
+      "duracion_minutos": 10,
       "estado": "cerrado"
     }
   ]
