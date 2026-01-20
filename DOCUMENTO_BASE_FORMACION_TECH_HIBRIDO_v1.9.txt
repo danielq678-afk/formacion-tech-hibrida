@@ -1,29 +1,30 @@
-DOCUMENTO BASE – FORMACIÓN TECH HÍBRIDO
-VERSIÓN 2.1
+DOCUMENTO BASE – PROYECTO 1
+FORMACIÓN TECH HÍBRIDO
+VERSIÓN 2.2
 
 ============================================
 
 OBJETIVO DEL DOCUMENTO
 
-Este documento consolida TODO el proceso realizado hasta la fecha en el proyecto “formacion-tech-hibrida”.
+Este documento consolida TODO el proceso realizado en el PROYECTO 1 del sistema de registro de paros de producción.
 
 No es un manual técnico aislado ni una guía de código.
 Es un documento de CONTEXTO, CRITERIO y OPERACIÓN.
 
 Su objetivo es permitir:
 
-* Retomar el proyecto sin pérdida de contexto
-* Explicar decisiones técnicas y no técnicas
-* Entender el sistema como un todo
-* Continuar el desarrollo sin rehacer ni romper
+* Conservar el contexto del Proyecto 1 ya cerrado
+* Explicar decisiones técnicas y operativas
+* Servir como referencia histórica y de aprendizaje
+* Marcar un cierre claro antes de iniciar el Proyecto 2
 
 ============================================
 
 CONTEXTO GENERAL DEL PROYECTO
 
-El proyecto nace con un objetivo operativo claro:
+El Proyecto 1 nace con un objetivo operativo claro:
 
-Diseñar un sistema SIMPLE para registrar paros de producción por célula, causa y duración, con el fin de obtener métricas reales que apoyen decisiones de mantenimiento y mejora.
+Diseñar y poner en operación un sistema SIMPLE para registrar paros de producción por célula, causa y duración, con el fin de obtener métricas reales que apoyen decisiones de mantenimiento y mejora.
 
 Principios desde el inicio:
 
@@ -31,8 +32,9 @@ Principios desde el inicio:
 * No interferir con mantenimiento
 * Capturar datos reales con mínima fricción
 * Priorizar claridad sobre complejidad
+* Diseñar para el error humano, no para el uso ideal
 
-El sistema se construye como PILOTO OPERATIVO, no como producto final.
+El sistema se construye y se valida como PILOTO OPERATIVO REAL.
 
 ============================================
 
@@ -49,7 +51,7 @@ No se mezclan responsabilidades.
 
 ---
 
-1. CAPA DE CAPTURA – HTML
+1. CAPA DE CAPTURA – FRONTEND (HTML + JS)
 
 Archivo principal:
 
@@ -58,20 +60,31 @@ Archivo principal:
 Función:
 
 * Mostrar formulario a operarios
-* Guiar selección correcta (célula, tipo, causa)
-* Evitar errores humanos básicos
-* Enviar información al backend
+* Guiar selección correcta (operario, célula, tipo de paro, causa)
+* Evitar errores humanos comunes desde diseño
+* Enviar información limpia al backend
 
-Características clave:
+Características clave finales:
 
-* No depende de base de datos
-* Funciona en navegador (PC o celular)
-* Usa validaciones simples
+* Formularios grandes y legibles (pensado para operadores de edad avanzada)
+* Fondo gris claro para reducir fatiga visual
+* Tipografía aumentada y controles amplios
+* Radios y selects diseñados para uso en planta
 
-Decisión importante:
+Decisiones críticas implementadas:
 
-* El formulario NO escribe directamente en paros.json
-* Primero escribe en un archivo intermedio
+* Separación estricta de causas OPERATIVAS y TÉCNICAS
+* Las causas visibles dependen de:
+
+  * Tipo de paro seleccionado
+  * Célula seleccionada
+* Es imposible registrar un paro operativo con causa técnica y viceversa
+
+Resultado:
+
+* Error humano prevenido desde el frontend
+* Datos consistentes desde el origen
+* Backend sin necesidad de validaciones complejas
 
 ---
 
@@ -86,16 +99,17 @@ Función:
 * Recibir el POST del formulario
 * Guardar el evento capturado
 
-Archivo generado:
+Archivo intermedio:
 
 * paros_formulario.json
 
 Este archivo representa:
 
-* El evento tal como fue ingresado
-* Una “foto” del formulario
+* El evento exactamente como fue ingresado
+* Una foto del formulario
+* Un punto seguro de depuración
 
-Luego entra en juego:
+Procesamiento posterior:
 
 * agregar_paro.py
 
@@ -112,7 +126,7 @@ Archivo histórico:
 Este archivo es:
 
 * La fuente de verdad del sistema
-* El histórico acumulado
+* El histórico acumulado del Proyecto 1
 
 ---
 
@@ -128,7 +142,7 @@ Función:
 * Calcular métricas
 * Generar reportes
 
-Archivos generados (salidas):
+Archivos de salida:
 
 * resumen_por_causa.csv
 * resumen_tiempo_por_causa.csv
@@ -136,75 +150,82 @@ Archivos generados (salidas):
 
 Estos archivos:
 
-* NO son sistema
-* Son resultados
-* Se pueden borrar y regenerar
+* No son sistema
+* Son regenerables
+* Representan los entregables del piloto
 
 ============================================
 
-AUTOMATIZACIÓN OPERATIVA (NUEVO HITO)
+AUTOMATIZACIÓN OPERATIVA
 
-A partir del inicio del piloto en operación, el sistema incorpora ejecución automática de tareas.
+Estado al cierre del Proyecto 1:
 
-Estado actual:
+* El piloto se encuentra en operación real
+* La captura de datos funciona de forma continua
+* El flujo manual completo está validado
 
-* El piloto YA se encuentra en operación real
-* Existen tareas automáticas ejecutándose
-* El flujo manual ha sido validado en condiciones reales
+Pendiente identificado (fuera del alcance del Proyecto 1):
 
-Pendiente inmediato (última pieza):
+* Creación del archivo .bat
+* Creación de la tarea programada para ejecutar leer_paros.py
+* Generación automática periódica de entregables
 
-* Crear la tarea programada específica
-* Crear el archivo .bat que:
-
-  * Lea paros.json
-  * Ejecute leer_paros.py
-  * Genere automáticamente los entregables (CSV)
-
-Este paso NO modifica la lógica del sistema.
-Solo automatiza una operación ya validada.
+Este pendiente se agenda explícitamente para el PROYECTO 2.
 
 ============================================
 
-FLUJO COMPLETO DE INFORMACIÓN (LÍNEA DE VIDA)
+FLUJO COMPLETO DE INFORMACIÓN
 
 1. Operario abre index.html
-2. Completa formulario
-3. Presiona “Registrar Paro”
-4. HTML envía POST a Flask
-5. Flask guarda evento en paros_formulario.json
-6. agregar_paro.py procesa y agrega a paros.json
-7. leer_paros.py analiza paros.json
-8. Se generan métricas y reportes
-9. (Piloto) Tarea automática ejecuta lectura y generación de entregables
+2. Selecciona operario, célula y tipo de paro
+3. El sistema muestra solo causas válidas
+4. Se registra duración
+5. HTML envía POST a Flask
+6. Flask guarda en paros_formulario.json
+7. agregar_paro.py consolida en paros.json
+8. leer_paros.py genera métricas (manual en Proyecto 1)
 
-Este flujo es LINEAL, CLARO y TRAZABLE.
+Flujo claro, lineal y trazable.
 
 ============================================
 
-ESTADO ACTUAL DEL PROYECTO
+ESTADO FINAL – CIERRE PROYECTO 1
 
-* Piloto en operación real iniciado
-* Captura de datos automática en uso
-* Scripts validados con datos reales
-* Tareas automáticas parciales funcionando
-* Pendiente únicamente el .bat de lectura final
+Al cierre del Proyecto 1:
 
-Este punto marca un HITO MAYOR del proyecto:
+* Sistema funcionando end-to-end
+* Uso en operación real de planta
+* Datos reales capturados
+* Errores operativos prevenidos desde diseño
+* Frontend ergonómico y robusto
+* Backend simple y estable
+* Documentación consolidada
 
-El sistema dejó de ser prueba y pasó a operación.
+El Proyecto 1 se da por CERRADO.
+
+Cualquier mejora adicional, automatización o evolución pertenece a un nuevo proyecto.
+
+============================================
+
+APRENDIZAJES CLAVE
+
+* Integración real de HTML, JavaScript y Python
+* Diseño orientado a operación, no a laboratorio
+* Importancia de la ergonomía y legibilidad
+* Prevención de errores antes que corrección
+* Documentar decisiones evita rehacer trabajo
 
 ============================================
 
 CIERRE
 
-Este documento existe para evitar:
+Este documento existe para:
 
-* volver a cometer los mismos errores
-* perder contexto
-* rehacer trabajo ya validado
+* Preservar el aprendizaje del Proyecto 1
+* Evitar pérdida de contexto
+* Servir como base sólida para el Proyecto 2
 
 El sistema no es complejo.
 Es CLARO, CONTROLADO y ENTENDIDO.
 
-A partir de aquí, cualquier evolución es una decisión, no una urgencia.
+Proyecto 1 cerrado correctamente.
