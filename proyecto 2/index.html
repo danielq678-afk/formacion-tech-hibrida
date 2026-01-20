@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Condiciones Básicas – Esmaltado Robotizado Tazas</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        fieldset {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        legend {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e6e6e6;
+        }
+
+        select, button {
+            font-size: 20px;
+            padding: 6px;
+        }
+
+        .celula-select {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Condiciones Básicas – Esmaltado Robotizado Tazas</h1>
+
+<form>
+
+    <!-- Encabezado -->
+    <fieldset>
+        <legend>Datos Generales</legend>
+
+        <label>Fecha:</label><br>
+        <input type="date" required><br><br>
+
+        <label>Turno:</label><br>
+        <select required>
+            <option value="">Seleccione</option>
+            <option>Turno 1</option>
+            <option>Turno 2</option>
+            <option>Turno 3</option>
+        </select><br><br>
+
+        <label>Inspector:</label><br>
+        <select required>
+            <option value="">Seleccione</option>
+            <option>German Muñoz</option>
+            <option>Carlos Rua</option>
+            <option>Dairon Vanegas</option>
+            <option>Jonatan Estrada</option>
+            <option>Felipe Cadavid</option>
+            <option>Camilo Niño</option>
+            <option>Faber Mesa</option>
+            <option>Gustavo Moreno</option>
+            <option>Juan Manuel Hernández</option>
+        </select>
+    </fieldset>
+
+    <!-- Condiciones Básicas -->
+    <fieldset>
+        <legend>Condiciones Básicas</legend>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Condición</th>
+                    <th>¿Se cumple?</th>
+                    <th>Célula (solo si NO se cumple)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Aplicación sin textura rayada, esmalte chorreado o polvo excesivo</td>
+                    <td>
+                        <select class="cumple">
+                            <option value="">Seleccione</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="celula-select">
+                            <option value="">Seleccione célula</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Pinzas abren y cierran correctamente y sin vibraciones</td>
+                    <td>
+                        <select class="cumple">
+                            <option value="">Seleccione</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="celula-select">
+                            <option value="">Seleccione célula</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </fieldset>
+
+    <button type="submit">Registrar Inspección</button>
+
+</form>
+
+<script>
+    const cumpleSelects = document.querySelectorAll('.cumple');
+
+    cumpleSelects.forEach(select => {
+        select.addEventListener('change', () => {
+            const fila = select.closest('tr');
+            const celulaSelect = fila.querySelector('.celula-select');
+
+            if (select.value === 'no') {
+                celulaSelect.style.display = 'inline-block';
+            } else {
+                celulaSelect.style.display = 'none';
+                celulaSelect.value = '';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
