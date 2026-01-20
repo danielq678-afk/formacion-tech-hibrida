@@ -56,103 +56,104 @@
 
     <br>
 
-    <!-- 4. Causa -->
-    <fieldset>
-        <legend><strong>Causa del Paro</strong></legend>
+            <!-- 4. Causa -->
+        <fieldset>
+            <legend><strong>Causa del Paro</strong></legend>
 
-        <!-- Causas células 1-2-3 -->
-        <select id="causa_123" style="display:none;">
-            <option value="">Seleccione</option>
+            <!-- 123 Operativo -->
+            <select id="causa_op_123" style="display:none;">
+                <option value="">Seleccione</option>
+                <option>Descarga</option>
+                <option>Carga</option>
+                <option>Falta producción</option>
+            </select>
 
-            <!-- Operativo -->
-            <option>Descarga</option>
-            <option>Carga</option>
-            <option>Falta producción</option>
+            <!-- 123 Técnico -->
+            <select id="causa_tec_123" style="display:none;">
+                <option value="">Seleccione</option>
+                <option>Conveyor entrada</option>
+                <option>Sensores</option>
+                <option>Escuadra</option>
+                <option>Elevador 1</option>
+                <option>Elevador 2</option>
+                <option>Cadenas</option>
+                <option>Conveyor salida</option>
+                <option>Sensores conveyor de salida</option>
+                <option>Motor de extracción</option>
+                <option>Centralina</option>
+                <option>Correas</option>
+                <option>Esponjas</option>
+                <option>Cabina</option>
+                <option>Torretas</option>
+                <option>Giostra</option>
+                <option>Puertas cabina</option>
+                <option>Sifón</option>
+                <option>Sensor llenado</option>
+                <option>Sensor presencia</option>
+                <option>Cilindros de llenado</option>
+                <option>Sistema llenado</option>
+                <option>Bomba</option>
+                <option>Tamiz</option>
+                <option>Válvula fisher llenado</option>
+                <option>Válvula fisher sifón</option>
+                <option>GDS</option>
+                <option>Válvulas de GDS</option>
+                <option>Sensores tanque</option>
+                <option>Robot manipulador</option>
+                <option>Pinzas</option>
+                <option>Cilindros de pinzas</option>
+                <option>Perfiles</option>
+                <option>Ángulos</option>
+                <option>Robot esmaltador</option>
+                <option>Pistola</option>
+                <option>Otro</option>
+            </select>
 
-            <!-- Técnico -->
-            <option>Conveyor entrada</option>
-            <option>Sensores</option>
-            <option>Escuadra</option>
-            <option>Elevador 1</option>
-            <option>Elevador 2</option>
-            <option>Cadenas</option>
-            <option>Conveyor salida</option>
-            <option>Sensores conveyor de salida</option>
-            <option>Motor de extracción</option>
-            <option>Centralina</option>
-            <option>Correas</option>
-            <option>Esponjas</option>
-            <option>Cabina</option>
-            <option>Torretas</option>
-            <option>Giostra</option>
-            <option>Puertas cabina</option>
-            <option>Sifón</option>
-            <option>Sensor llenado</option>
-            <option>Sensor presencia</option>
-            <option>Cilindros de llenado</option>
-            <option>Sistema llenado</option>
-            <option>Bomba</option>
-            <option>Tamiz</option>
-            <option>Válvula fisher llenado</option>
-            <option>Válvula fisher sifón</option>
-            <option>GDS</option>
-            <option>Válvulas de GDS</option>
-            <option>Sensores tanque</option>
-            <option>Robot manipulador</option>
-            <option>Pinzas</option>
-            <option>Cilindros de pinzas</option>
-            <option>Perfiles</option>
-            <option>Ángulos</option>
-            <option>Robot esmaltador</option>
-            <option>Pistola</option>
-            <option>Otro</option>
-        </select>
+            <!-- 4 Operativo -->
+            <select id="causa_op_4" style="display:none;">
+                <option value="">Seleccione</option>
+                <option>Descarga</option>
+                <option>Carga</option>
+                <option>Falta producción</option>
+            </select>
 
-        <!-- Causas célula 4 -->
-        <select id="causa_4" style="display:none;">
-            <option value="">Seleccione</option>
+            <!-- 4 Técnico -->
+            <select id="causa_tec_4" style="display:none;">
+                <option value="">Seleccione</option>
+                <option>Línea A</option>
+                <option>Sensores Línea A</option>
+                <option>Elevadores Línea A</option>
+                <option>Servo Línea A</option>
+                <option>Línea B</option>
+                <option>Sensores Línea B</option>
+                <option>Servo Línea B</option>
+                <option>Elevadores Línea B</option>
+                <option>Torreta 1</option>
+                <option>Limpiador Torreta 1</option>
+                <option>Torreta 2</option>
+                <option>Limpiador Torreta 2</option>
+                <option>Línea C</option>
+                <option>Sensores Línea C</option>
+                <option>Elevadores Línea C</option>
+                <option>Motor de extracción</option>
+                <option>Sifón</option>
+                <option>Sensor llenado sifón</option>
+                <option>Sensor presencia sifón</option>
+                <option>Cilindros sifón</option>
+                <option>Sistema llenado</option>
+                <option>Bomba</option>
+                <option>Tamiz</option>
+                <option>Válvulas fisher sifón</option>
+                <option>Válvulas fisher GDS</option>
+                <option>GDS</option>
+                <option>Pistola</option>
+                <option>Válvulas PV de GDS</option>
+                <option>Sensores tanque</option>
+                <option>Otro</option>
+            </select>
 
-            <!-- Operativo -->
-            <option>Descarga</option>
-            <option>Carga</option>
-            <option>Falta producción</option>
-
-            <!-- Técnico -->
-            <option>Línea A</option>
-            <option>Sensores Línea A</option>
-            <option>Elevadores Línea A</option>
-            <option>Servo Línea A</option>
-            <option>Línea B</option>
-            <option>Sensores Línea B</option>
-            <option>Servo Línea B</option>
-            <option>Elevadores Línea B</option>
-            <option>Torreta 1</option>
-            <option>Limpiador Torreta 1</option>
-            <option>Torreta 2</option>
-            <option>Limpiador Torreta 2</option>
-            <option>Línea C</option>
-            <option>Sensores Línea C</option>
-            <option>Elevadores Línea C</option>
-            <option>Motor de extracción</option>
-            <option>Sifón</option>
-            <option>Sensor llenado sifón</option>
-            <option>Sensor presencia sifón</option>
-            <option>Cilindros sifón</option>
-            <option>Sistema llenado</option>
-            <option>Bomba</option>
-            <option>Tamiz</option>
-            <option>Válvulas fisher sifón</option>
-            <option>Válvulas fisher GDS</option>
-            <option>GDS</option>
-            <option>Pistola</option>
-            <option>Válvulas PV de GDS</option>
-            <option>Sensores tanque</option>
-            <option>Otro</option>
-        </select>
-
-        <!-- Causa FINAL enviada -->
-        <input type="hidden" id="causa_final" name="causa">
-    </fieldset>
+            <input type="hidden" id="causa_final" name="causa">
+        </fieldset>
 
     <br>
 
@@ -177,44 +178,61 @@
 
 <script>
 const celula = document.getElementById("celula");
-const causa123 = document.getElementById("causa_123");
-const causa4 = document.getElementById("causa_4");
-const causaFinal = document.getElementById("causa_final");
+const tipos = document.getElementsByName("tipo_evento");
 const boton = document.getElementById("btnRegistrar");
 const mensaje = document.getElementById("mensajeAyuda");
+const causaFinal = document.getElementById("causa_final");
 
-function resetFormulario() {
-    causa123.style.display = "none";
-    causa4.style.display = "none";
-    causa123.value = "";
-    causa4.value = "";
+const causa_op_123 = document.getElementById("causa_op_123");
+const causa_tec_123 = document.getElementById("causa_tec_123");
+const causa_op_4 = document.getElementById("causa_op_4");
+const causa_tec_4 = document.getElementById("causa_tec_4");
+
+const todos = [causa_op_123, causa_tec_123, causa_op_4, causa_tec_4];
+
+function ocultarTodo() {
+    todos.forEach(s => {
+        s.style.display = "none";
+        s.value = "";
+    });
     causaFinal.value = "";
     boton.disabled = true;
     mensaje.style.display = "block";
 }
 
-function actualizarFormulario() {
-    resetFormulario();
+function obtenerTipo() {
+    for (let r of tipos) {
+        if (r.checked) return r.value;
+    }
+    return "";
+}
 
-    if (celula.value === "4") {
-        causa4.style.display = "block";
-    } else if (celula.value === "1" || celula.value === "2" || celula.value === "3") {
-        causa123.style.display = "block";
+function mostrarCausaCorrecta() {
+    ocultarTodo();
+
+    const tipo = obtenerTipo();
+    const cel = celula.value;
+
+    if (!tipo || !cel) return;
+
+    let select = null;
+
+    if (cel === "4") {
+        select = (tipo === "operativo") ? causa_op_4 : causa_tec_4;
+    } else {
+        select = (tipo === "operativo") ? causa_op_123 : causa_tec_123;
+    }
+
+    if (select) {
+        select.style.display = "block";
     }
 }
 
 function validarFormulario() {
-    let causaSeleccionada = "";
+    const visible = todos.find(s => s.style.display === "block");
 
-    if (causa123.style.display === "block") {
-        causaSeleccionada = causa123.value;
-    }
-    if (causa4.style.display === "block") {
-        causaSeleccionada = causa4.value;
-    }
-
-    if (celula.value !== "" && causaSeleccionada !== "") {
-        causaFinal.value = causaSeleccionada;
+    if (visible && visible.value !== "") {
+        causaFinal.value = visible.value;
         boton.disabled = false;
         mensaje.style.display = "none";
     } else {
@@ -223,16 +241,22 @@ function validarFormulario() {
     }
 }
 
+/* EVENTOS */
 celula.addEventListener("change", () => {
-    actualizarFormulario();
+    mostrarCausaCorrecta();
     validarFormulario();
 });
 
-causa123.addEventListener("change", validarFormulario);
-causa4.addEventListener("change", validarFormulario);
+tipos.forEach(r => {
+    r.addEventListener("change", () => {
+        mostrarCausaCorrecta();
+        validarFormulario();
+    });
+});
 
-window.onload = resetFormulario;
+todos.forEach(s => {
+    s.addEventListener("change", validarFormulario);
+});
+
+window.onload = ocultarTodo;
 </script>
-
-</body>
-</html>

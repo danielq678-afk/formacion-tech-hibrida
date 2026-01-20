@@ -1,5 +1,5 @@
 DOCUMENTO BASE – FORMACIÓN TECH HÍBRIDO
-VERSIÓN 2.0
+VERSIÓN 2.1
 
 ============================================
 
@@ -142,6 +142,30 @@ Estos archivos:
 
 ============================================
 
+AUTOMATIZACIÓN OPERATIVA (NUEVO HITO)
+
+A partir del inicio del piloto en operación, el sistema incorpora ejecución automática de tareas.
+
+Estado actual:
+
+* El piloto YA se encuentra en operación real
+* Existen tareas automáticas ejecutándose
+* El flujo manual ha sido validado en condiciones reales
+
+Pendiente inmediato (última pieza):
+
+* Crear la tarea programada específica
+* Crear el archivo .bat que:
+
+  * Lea paros.json
+  * Ejecute leer_paros.py
+  * Genere automáticamente los entregables (CSV)
+
+Este paso NO modifica la lógica del sistema.
+Solo automatiza una operación ya validada.
+
+============================================
+
 FLUJO COMPLETO DE INFORMACIÓN (LÍNEA DE VIDA)
 
 1. Operario abre index.html
@@ -152,136 +176,23 @@ FLUJO COMPLETO DE INFORMACIÓN (LÍNEA DE VIDA)
 6. agregar_paro.py procesa y agrega a paros.json
 7. leer_paros.py analiza paros.json
 8. Se generan métricas y reportes
+9. (Piloto) Tarea automática ejecuta lectura y generación de entregables
 
 Este flujo es LINEAL, CLARO y TRAZABLE.
 
 ============================================
 
-DECISIONES IMPORTANTES TOMADAS
-
-1. USO DE ARCHIVO INTERMEDIO
-
-Se decidió usar paros_formulario.json para:
-
-* Separar captura de histórico
-* Facilitar debugging
-* Evitar corrupción del histórico
-
-2. SOLUCIÓN ROBUSTA PARA LA CAUSA
-
-Problema detectado:
-
-* Dos selects dinámicos con el mismo name causaban errores
-
-Solución adoptada:
-
-* Un único input hidden (causa_final)
-* Los selects visibles NO se envían
-* JavaScript copia la causa seleccionada
-
-Resultado:
-
-* Cero ambigüedad
-* Envíos consistentes
-* Sistema estable
-
-3. EJECUCIÓN DESDE CARPETA RAÍZ
-
-Se detectó un error crítico:
-
-* Ejecutar scripts desde C:\projects generaba lecturas falsas
-
-Decisión:
-
-* El sistema SOLO se ejecuta desde:
-  C:\projects\formacion-tech-hibrida
-
-Esto define el CONTEXTO del sistema.
-
-============================================
-
-ESTRUCTURA FINAL DEL PROYECTO
-
-projects/
-└── formacion-tech-hibrida/
-├── app.py
-├── index.html
-├── agregar_paro.py
-├── leer_paros.py
-├── paros.json
-├── paros_formulario.json
-├── reportes/
-│   ├── resumen_por_causa.csv
-│   ├── resumen_tiempo_por_causa.csv
-│   └── resumen_frecuencia_por_causa.csv
-└── repositorio/docs/
-├── documentos de contexto
-
-============================================
-
-ACCESO DESDE CELULARES (PILOTO)
-
-Configuración actual:
-
-* Flask corre en un PC local
-* Accesible por IP local (192.168.x.x)
-
-Condiciones:
-
-* PC y celular deben estar en la MISMA red Wi-Fi
-* NO funciona con datos móviles
-
-Esto es:
-
-* Correcto
-* Seguro
-* Adecuado para piloto
-
-El acceso por datos móviles se considera FUTURA EVOLUCIÓN.
-
-============================================
-
-MÉTRICAS DISPONIBLES
-
-1. Tiempo total detenido por causa
-2. Número de eventos por causa
-3. Número de eventos por célula
-
-Estas métricas permiten:
-
-* Identificar fallos largos vs fallos repetitivos
-* Priorizar inversión
-* Detectar desgaste operativo
-
-============================================
-
-REINICIO Y GESTIÓN DEL HISTÓRICO
-
-Reglas:
-
-* paros.json NO se borra a lo bruto
-* Se vacía o se archiva
-
-Reinicio controlado:
-{
-"log_paros_celula": []
-}
-
-Archivado recomendado:
-
-* paros_2026_enero.json
-
-============================================
-
 ESTADO ACTUAL DEL PROYECTO
 
-* Sistema funcionando end-to-end
-* Datos reales capturados
-* Métricas generadas correctamente
-* Estructura limpia
-* Contexto claro
+* Piloto en operación real iniciado
+* Captura de datos automática en uso
+* Scripts validados con datos reales
+* Tareas automáticas parciales funcionando
+* Pendiente únicamente el .bat de lectura final
 
-El proyecto está LISTO PARA PILOTO OPERATIVO.
+Este punto marca un HITO MAYOR del proyecto:
+
+El sistema dejó de ser prueba y pasó a operación.
 
 ============================================
 
