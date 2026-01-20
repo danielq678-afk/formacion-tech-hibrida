@@ -110,6 +110,24 @@
       "estado": "cerrado",
       "id_evento": "d49ad3d4-2a6a-47fa-860e-e02773cd2ee5",
       "timestamp": "2026-01-19 11:33:24"
+    },
+    {
+      "celula": 4,
+      "tipo_evento": "tecnico",
+      "causa": "Sensor llenado sifón",
+      "duracion_minutos": 10,
+      "estado": "cerrado",
+      "id_evento": "a696ac93-bfa3-4562-897f-e32633b87a75",
+      "timestamp": "2026-01-20 11:25:11"
+    },
+    {
+      "celula": 4,
+      "tipo_evento": "tecnico",
+      "causa": "Sensor presencia sifón",
+      "duracion_minutos": 10,
+      "estado": "cerrado",
+      "id_evento": "3251c443-5aab-4663-90de-d378d0d36590",
+      "timestamp": "2026-01-20 11:26:48"
     }
   ]
 }

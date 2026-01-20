@@ -1,10 +1,10 @@
 {
   "log_paros_celula": [
     {
-      "celula": 1,
+      "celula": 4,
       "tipo_evento": "tecnico",
-      "causa": "Sensor llenado",
-      "duracion_minutos": 15,
+      "causa": "Sensor presencia sifón",
+      "duracion_minutos": 10,
       "estado": "cerrado"
     }
   ]
