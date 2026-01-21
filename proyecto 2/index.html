@@ -37,6 +37,9 @@
             padding: 8px;
             text-align: center;
         }
+        td:first-child {
+             text-align: left;
+        }
 
         th {
             background-color: #e6e6e6;
@@ -49,7 +52,17 @@
 
         .celula-select {
             display: none;
+            text-align: left;
         }
+
+        .celula-select label {
+            margin-right: 10px;
+        }
+        .celula-select label {
+        display: inline-block;
+        margin-right: 12px;
+        }
+        
     </style>
 </head>
 <body>
@@ -60,21 +73,22 @@
 
     <!-- Encabezado -->
     <fieldset>
+
         <legend>Datos Generales</legend>
 
         <label>Fecha:</label><br>
-        <input type="date" required><br><br>
+        <input type="date" id="fecha" required><br><br>
 
         <label>Turno:</label><br>
-        <select required>
+        <select id="turno" required>
             <option value="">Seleccione</option>
-            <option>Turno 1</option>
-            <option>Turno 2</option>
-            <option>Turno 3</option>
+            <option value="1">Turno 1</option>
+            <option value="2">Turno 2</option>
+            <option value="3">Turno 3</option>
         </select><br><br>
 
         <label>Inspector:</label><br>
-        <select required>
+        <select id="inspector" required>
             <option value="">Seleccione</option>
             <option>German Muñoz</option>
             <option>Carlos Rua</option>
@@ -88,8 +102,10 @@
         </select>
     </fieldset>
 
+
     <!-- Condiciones Básicas -->
-    <fieldset>
+    <fieldset id="condiciones">
+
         <legend>Condiciones Básicas</legend>
 
         <table>
@@ -103,69 +119,330 @@
             <tbody>
                 <tr>
                     <td>Aplicación sin textura rayada, esmalte chorreado o polvo excesivo</td>
-                    <td>
-                        <select class="cumple">
-                            <option value="">Seleccione</option>
-                            <option value="si">Sí</option>
-                            <option value="no">No</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="celula-select">
-                            <option value="">Seleccione célula</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
                     </td>
                 </tr>
-
+                <tr>
+                    <td>Pinzas con desgaste y/o desajuste</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
                 <tr>
                     <td>Pinzas abren y cierran correctamente y sin vibraciones</td>
-                    <td>
-                        <select class="cumple">
-                            <option value="">Seleccione</option>
-                            <option value="si">Sí</option>
-                            <option value="no">No</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="celula-select">
-                            <option value="">Seleccione célula</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
                     </td>
                 </tr>
-
+                <tr>
+                    <td>Pistola sin goteo, racores y mangueras en buen estado</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Torretas y cauchos en buen estado y bien niveladas</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Limpiador de boquilla centrado</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Filtro de esmalte limpio y sin fisuras</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tinas de esmalte sifón lavadas en el turno</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Caucho del sistema sifón limpio y sin acumulación</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Boquilla de llenado sifón limpia</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cilindro de boquilla sifón lubricado y sin vibraciones</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Escuadra de centraje bien ajustada</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nivel de esmalte sifón correcto</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Limpieza de HS de la taza correcta</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sensor de flujo másico calibrado a cero</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reporte de productividad de células actualizado</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reporte de rotura esmaltada registrado</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Registro de pérdidas mayores y menores diligenciado</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revisión general de la célula realizada</td>
+                    <td><select class="cumple"><option value="">Seleccione</option><option value="si">Sí</option><option value="no">No</option></select></td>
+                    <td class="celula-select">
+                        <label><input type="checkbox" value="1"> 1</label>
+                        <label><input type="checkbox" value="2"> 2</label>
+                        <label><input type="checkbox" value="3"> 3</label>
+                        <label><input type="checkbox" value="4"> 4</label>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </fieldset>
 
-    <button type="submit">Registrar Inspección</button>
+    <button type="submit" id="btnRegistrar" disabled>Registrar Inspección</button>
+
 
 </form>
 
 <script>
-    const cumpleSelects = document.querySelectorAll('.cumple');
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ===============================
+       REFERENCIAS GENERALES
+    ================================ */
+
+    const fechaInput = document.getElementById("fecha");
+    const turnoSelect = document.getElementById("turno");
+    const inspectorSelect = document.getElementById("inspector");
+    const condiciones = document.getElementById("condiciones");
+    const btnRegistrar = document.getElementById("btnRegistrar");
+    const cumpleSelects = document.querySelectorAll(".cumple");
+
+    /* ===============================
+       LÓGICA CONDICIONES BÁSICAS
+    ================================ */
 
     cumpleSelects.forEach(select => {
-        select.addEventListener('change', () => {
-            const fila = select.closest('tr');
-            const celulaSelect = fila.querySelector('.celula-select');
+        select.addEventListener("change", () => {
+            const fila = select.closest("tr");
+            const celulaSelect = fila.querySelector(".celula-select");
 
-            if (select.value === 'no') {
-                celulaSelect.style.display = 'inline-block';
+            if (select.value === "no") {
+                celulaSelect.style.display = "block";
             } else {
-                celulaSelect.style.display = 'none';
-                celulaSelect.value = '';
+                celulaSelect.style.display = "none";
+                celulaSelect.querySelectorAll("input").forEach(c => c.checked = false);
             }
+
+            validarFormularioCompleto();
         });
     });
-</script>
 
-</body>
-</html>
+    document.querySelectorAll(".celula-select input").forEach(check => {
+        check.addEventListener("change", validarFormularioCompleto);
+    });
+
+    /* ===============================
+       VALIDACIÓN FORMULARIO COMPLETO
+    ================================ */
+
+    function validarFormularioCompleto() {
+        let valido = true;
+
+        cumpleSelects.forEach(select => {
+            if (select.value === "") {
+                valido = false;
+                return;
+            }
+
+            if (select.value === "no") {
+                const fila = select.closest("tr");
+                const checks = fila.querySelectorAll(".celula-select input[type='checkbox']");
+                const algunoMarcado = Array.from(checks).some(c => c.checked);
+
+                if (!algunoMarcado) {
+                    valido = false;
+                }
+            }
+        });
+
+        btnRegistrar.disabled = !valido;
+    }
+
+    /* ===============================
+       SEGURIDAD OPERATIVA
+    ================================ */
+
+    function esFechaHoy() {
+        const hoy = new Date().toISOString().split("T")[0];
+        return fechaInput.value === hoy;
+    }
+
+    function turnoValido() {
+        const hora = new Date().getHours();
+        const turno = turnoSelect.value;
+
+        if (turno === "1") return hora >= 6 && hora < 14;
+        if (turno === "2") return hora >= 14 && hora < 22;
+        if (turno === "3") return hora >= 22 || hora < 6;
+
+        return false;
+    }
+
+    function validarAccesoCondiciones() {
+        if (esFechaHoy() && turnoValido() && inspectorSelect.value !== "") {
+            condiciones.style.opacity = "1";
+            condiciones.style.pointerEvents = "auto";
+        } else {
+            condiciones.style.opacity = "0.4";
+            condiciones.style.pointerEvents = "none";
+        }
+    }
+
+    function restringirTurnosPorHora() {
+        const hora = new Date().getHours();
+
+        turnoSelect.querySelectorAll("option").forEach(op => {
+            if (op.value === "") return;
+
+            if (op.value === "1") op.disabled = !(hora >= 6 && hora < 14);
+            if (op.value === "2") op.disabled = !(hora >= 14 && hora < 22);
+            if (op.value === "3") op.disabled = !(hora >= 22 || hora < 6);
+        });
+    }
+
+    /* ===============================
+       INICIALIZACIÓN
+    ================================ */
+
+    const hoy = new Date().toISOString().split("T")[0];
+    fechaInput.value = hoy;
+    fechaInput.min = hoy;
+    fechaInput.max = hoy;
+
+    condiciones.style.opacity = "0.4";
+    condiciones.style.pointerEvents = "none";
+    btnRegistrar.disabled = true;
+
+    restringirTurnosPorHora();
+    validarAccesoCondiciones();
+    validarFormularioCompleto();
+
+    fechaInput.addEventListener("change", validarAccesoCondiciones);
+    turnoSelect.addEventListener("change", validarAccesoCondiciones);
+    inspectorSelect.addEventListener("change", validarAccesoCondiciones);
+
+});
+</script>
