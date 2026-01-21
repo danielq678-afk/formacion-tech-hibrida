@@ -1,0 +1,130 @@
+# Proyecto 2 – Condiciones Básicas Esmaltado Robotizado Tazas
+
+## 1. Objetivo del proyecto
+
+Diseñar e implementar un sistema digital de inspección de **Condiciones Básicas** para el proceso de **Esmaltado Robotizado de Tazas**, orientado a uso en planta mediante tablet.
+
+El sistema debe:
+
+* Prevenir errores humanos desde el origen
+* Garantizar que las inspecciones se registren completas y correctas
+* Generar datos estructurados y confiables para análisis posterior
+
+---
+
+## 2. Alcance
+
+### Incluido en el Proyecto 2
+
+* Interfaz HTML optimizada para tablet
+* Validaciones operativas en frontend (JavaScript)
+* Restricciones de fecha y turno según hora real
+* Registro obligatorio de todas las condiciones
+* Soporte para múltiples células por incumplimiento
+* Preparación para integración con backend (Flask / Python)
+
+### No incluido (pendiente)
+
+* Persistencia final en base de datos
+* Automatización de reportes
+* Alertas o notificaciones
+
+---
+
+## 3. Flujo operativo
+
+1. El inspector ingresa al formulario en tablet
+2. Diligencia **Datos Generales**:
+
+   * Fecha (forzada al día en curso)
+   * Turno (habilitado según franja horaria)
+   * Inspector
+3. Solo cuando los datos generales son válidos se habilitan las condiciones básicas
+4. Cada condición debe marcarse como **Sí** o **No**
+5. Si una condición es **No**, se deben seleccionar una o más células afectadas
+6. El sistema solo permite registrar la inspección cuando todas las condiciones están diligenciadas correctamente
+
+---
+
+## 4. Reglas operativas implementadas
+
+### Fecha
+
+* La fecha se fuerza automáticamente al día actual
+* No se permiten fechas futuras ni pasadas
+
+### Turnos
+
+* Turno 1: 06:00 – 14:00
+* Turno 2: 14:00 – 22:00
+* Turno 3: 22:00 – 06:00
+* Los turnos no válidos se deshabilitan automáticamente según la hora del sistema
+
+### Condiciones básicas
+
+* Las condiciones permanecen bloqueadas hasta completar datos generales
+* No se permite registrar una inspección incompleta
+* No se permite registrar un incumplimiento sin células asociadas
+
+---
+
+## 5. Diseño de interfaz (Frontend)
+
+### Tecnologías
+
+* HTML5
+* CSS3 (Flexbox)
+* JavaScript Vanilla
+
+### Principios de diseño
+
+* Uso en tablet (mínimo scroll)
+* Tipografía grande y legible
+* Contraste alto
+* Distribución horizontal de datos generales
+* Bloqueo visual de secciones no habilitadas
+
+---
+
+## 6. Estructura de datos esperada (Modelo)
+
+### Inspección
+
+```json
+{
+  "fecha": "YYYY-MM-DD",
+  "turno": "1 | 2 | 3",
+  "inspector": "Nombre",
+  "incumplimientos": [
+    {
+      "condicion": "Texto de la condición",
+      "celulas": [1, 4]
+    }
+  ]
+}
+```
+
+---
+
+## 7. Estado actual del proyecto
+
+* Frontend completo y funcional
+* Validaciones operativas implementadas
+* Flujo probado manualmente
+* Base sólida para integración backend
+
+---
+
+## 8. Próximos pasos
+
+1. Definir archivo base `formulario_condiciones_basicas.json`
+2. Definir estructura final de almacenamiento de inspecciones
+3. Integrar backend Flask paso a paso
+4. Persistir inspecciones en JSON o base de datos
+5. Analizar incumplimientos por célula y condición
+
+---
+
+## 9. Cierre de etapa
+
+El Proyecto 2 consolida el aprendizaje de integración **HTML + CSS + JavaScript**, aplicados a un escenario real de planta, con foco en prevención, calidad de datos y usabilidad operativa.

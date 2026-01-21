@@ -6,24 +6,25 @@
 
     <style>
         body {
-            background-color: #f2f2f2;
+            background-color: hsl(0, 0%, 95%);
             font-family: Arial, sans-serif;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 25px;
+            color: #ef6c00;
         }
 
         fieldset {
             background-color: #ffffff;
-            padding: 15px;
+            padding: 18px;
             margin-bottom: 15px;
             border-radius: 6px;
         }
 
         legend {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
         }
 
@@ -46,7 +47,7 @@
         }
 
         select, button {
-            font-size: 20px;
+            font-size: 18px;
             padding: 6px;
         }
 
@@ -62,6 +63,24 @@
         display: inline-block;
         margin-right: 12px;
         }
+        .datos-generales-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+
+        .campo label {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
         
     </style>
 </head>
@@ -76,30 +95,41 @@
 
         <legend>Datos Generales</legend>
 
-        <label>Fecha:</label><br>
-        <input type="date" id="fecha" required><br><br>
+        <div class="datos-generales-row">
 
-        <label>Turno:</label><br>
-        <select id="turno" required>
-            <option value="">Seleccione</option>
-            <option value="1">Turno 1</option>
-            <option value="2">Turno 2</option>
-            <option value="3">Turno 3</option>
-        </select><br><br>
+            <div class="campo">
+                <label>Fecha</label>
+                <input type="date" id="fecha" required>
+            </div>
 
-        <label>Inspector:</label><br>
-        <select id="inspector" required>
-            <option value="">Seleccione</option>
-            <option>German Muñoz</option>
-            <option>Carlos Rua</option>
-            <option>Dairon Vanegas</option>
-            <option>Jonatan Estrada</option>
-            <option>Felipe Cadavid</option>
-            <option>Camilo Niño</option>
-            <option>Faber Mesa</option>
-            <option>Gustavo Moreno</option>
-            <option>Juan Manuel Hernández</option>
-        </select>
+            <div class="campo">
+                <label>Turno</label>
+                <select id="turno" required>
+                    <option value="">Seleccione</option>
+                    <option value="1">Turno 1</option>
+                    <option value="2">Turno 2</option>
+                    <option value="3">Turno 3</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Inspector</label>
+                <select id="inspector" required>
+                    <option value="">Seleccione</option>
+                    <option>German Muñoz</option>
+                    <option>Carlos Rua</option>
+                    <option>Dairon Vanegas</option>
+                    <option>Jonatan Estrada</option>
+                    <option>Felipe Cadavid</option>
+                    <option>Camilo Niño</option>
+                    <option>Faber Mesa</option>
+                    <option>Gustavo Moreno</option>
+                    <option>Juan Manuel Hernández</option>
+                </select>
+            </div>
+
+        </div>
+
     </fieldset>
 
 
@@ -312,11 +342,26 @@
     </fieldset>
 
     <button type="submit" id="btnRegistrar" disabled>Registrar Inspección</button>
+    <form method="post" action="http://127.0.0.1:5000/registrar_inspeccion">
 
 
 </form>
 
 <script>
+const filas = document.querySelectorAll("#condiciones tbody tr");
+
+filas.forEach((fila, index) => {
+    // Select Sí / No
+    const selectCumple = fila.querySelector(".cumple");
+    selectCumple.name = `cumple_${index}`;
+
+    // Checkboxes de células
+    const checks = fila.querySelectorAll(".celula-select input[type='checkbox']");
+    checks.forEach(check => {
+        check.name = `celulas_${index}[]`;
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ===============================
