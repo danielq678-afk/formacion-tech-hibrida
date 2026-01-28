@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "celulas_disponibles": [1, 2, 3, 4, 5],
+  "condiciones": [
+    "Boquillas limpias",
+    "Presión correcta",
+    "Sin goteos",
+    "Trayectoria robot correcta"
+  ]
+}

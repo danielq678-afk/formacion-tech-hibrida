@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PRUEBA CONDICIONES</title>
+</head>
+<body>
+
+<h1>PRUEBA CONDICIONES</h1>
+
+<button id="enviar">Enviar inspección</button>
+
+<script>
+console.log("SCRIPT NUEVO CARGADO");
+
+document.getElementById("enviar").addEventListener("click", () => {
+
+  fetch("/registrar_inspeccion", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      fecha: "2026-01-28",
+      turno: "1",
+      inspector: "Juan Pérez",
+      condiciones: [
+        { nombre: "Boquillas limpias", valor: "si" },
+        { nombre: "Presión correcta", valor: "no", celulas: [2, 3] },
+        { nombre: "Sin goteos", valor: "si" }
+      ]
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.mensaje);
+  });
+
+});
+</script>
+
+</body>
+</html>

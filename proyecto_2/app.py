@@ -1,15 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, jsonify, request
 import json
 import os
 from datetime import datetime
-
-print(request.form)
 
 
 app = Flask(__name__)
 
 DATA_PATH = "data/inspecciones.json"
-
 
 def cargar_inspecciones():
     if not os.path.exists(DATA_PATH):
@@ -17,25 +14,27 @@ def cargar_inspecciones():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
 def guardar_inspecciones(data):
     os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
     with open(DATA_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 
+@app.route("/")
+def home():
+    return render_template("prueba_backend.html")
+
 @app.route("/registrar_inspeccion", methods=["POST"])
 def registrar_inspeccion():
-    inspeccion = {
-        "fecha": request.form.get("fecha"),
-        "turno": request.form.get("turno"),
-        "inspector": request.form.get("inspector"),
-        "timestamp": datetime.now().isoformat(),
-        "condiciones": []
-    }
+    data = request.get_json()
 
-    # Aquí luego leeremos todas las condiciones
-    # (en el siguiente paso)
+    inspeccion = {
+        "fecha": data["fecha"],
+        "turno": data["turno"],
+        "inspector": data["inspector"],
+        "timestamp": datetime.now().isoformat(),
+        "condiciones": data["condiciones"]
+    }
 
     inspecciones = cargar_inspecciones()
     inspecciones.append(inspeccion)
@@ -43,7 +42,7 @@ def registrar_inspeccion():
 
     return jsonify({
         "status": "ok",
-        "mensaje": "Inspección registrada correctamente"
+        "mensaje": "Inspección guardada correctamente"
     })
 
 
