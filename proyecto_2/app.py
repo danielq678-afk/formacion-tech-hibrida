@@ -22,7 +22,7 @@ def guardar_inspecciones(data):
 
 @app.route("/")
 def home():
-    return render_template("prueba_backend.html")
+    return render_template("index.html")
 
 @app.route("/registrar_inspeccion", methods=["POST"])
 def registrar_inspeccion():
@@ -33,8 +33,15 @@ def registrar_inspeccion():
         "turno": data["turno"],
         "inspector": data["inspector"],
         "timestamp": datetime.now().isoformat(),
-        "condiciones": data["condiciones"]
+        "condiciones": []
     }
+
+    for c in data["condiciones"]:
+        inspeccion["condiciones"].append({
+            "nombre": c["nombre"],
+            "valor": c["valor"],
+            "celulas": c.get("celulas", [])
+        })
 
     inspecciones = cargar_inspecciones()
     inspecciones.append(inspeccion)
@@ -44,6 +51,7 @@ def registrar_inspeccion():
         "status": "ok",
         "mensaje": "Inspección guardada correctamente"
     })
+
 
 
 if __name__ == "__main__":
